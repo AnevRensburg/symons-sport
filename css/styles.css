@@ -1,10 +1,9 @@
 /* Navigation Bar */
 
 .navbar{
-    padding: 0.5% 10% 0.5% 10%;
+    padding: 0.5% 10% 4% 10%;
     background-color: white;
 }
-
 .navbar-brand{
     font-family: 'Ubuntu', sans-serif;
     font-size: 2.5rem;
@@ -23,16 +22,27 @@
     width: 250px;
 }
 
+.navb1 {
+    padding: 0.5% 10% 0.5% 10%;
+    background-color: white;
+}
 
+/* Background */
 
-/* Carousel */
+.background-img {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: absolute;
+    width: 80%;
+    height: 82%;
+    opacity: 0.8;
+    z-index: 1;
+}
 
-
-
-/* Container holding the text */
+/* Carousel text */
 
 .welcome {
-    margin: 7% auto auto 7%;
+    margin: 5% auto auto 14%;
     color: black;
     position: absolute;
     width: 300px;
@@ -54,43 +64,32 @@
 
 
 
-/* Carousel-transition  */
+/* Carousel text
 
-
-.carousel-fade .carousel-item {
-	opacity: 0;
-	transition-duration: .6s;
-	transition-property: opacity;
+.welcome {
+    margin: 5% auto auto 7%;
+    color: black;
+    position: absolute;
+    width: 300px;
+    text-align: left;
+    z-index: 2;
 }
-
-.carousel-fade .carousel-item.active,
-.carousel-fade .carousel-item-next.carousel-item-left,
-.carousel-fade .carousel-item-prev.carousel-item-right {
-	opacity: 1;
+.welcome-to-ssi{
+    text-decoration: italic;
+    font-family: 'Pridi', serif;
 }
-
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-right {
-	opacity: 0;
+.contact-us-link {
+    color: black;
+    text-decoration: underline;
 }
+.contact-us-link:hover {
+    color: black;
+    text-decoration: none;
+} */
 
-.carousel-fade .carousel-item-next,
-.carousel-fade .carousel-item-prev,
-.carousel-fade .carousel-item.active,
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-prev {
-	transform: translateX(0);
-	transform: translate3d(0, 0, 0);
-}
+/* Carousel */
 
-
-
-
-/* Test */
-
-
-
-.background-imgs {
+/* .background-imgs {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -102,25 +101,40 @@
     margin-right: 10%;
     width: 80%;
     height: 610px;
+} */
+
+/* Carousel-transition  */
+
+/* .carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .6s;
+	transition-property: opacity;
 }
-
-
-
-
-
-
-
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+	opacity: 0;
+}
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+} */
 
 
 /* Container fluid */
 
-
 .container-fluid {
     padding: 1% 27% 0 10%;
-    margin-bottom: 100px;}
-
-
-
+    margin-bottom: 100px;
+}
 
 
 /* Footer Navbar */
@@ -135,19 +149,26 @@
     padding: 0.5;
     z-index: 5;
 }
-
 .dealers {
     width: 10%;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
-
-
 .dealers:hover{
     padding: 0;
-    width: 11%;
+    width: 12%;
 }
 
+
+/* About Us */
+
+.profile { 
+    line-height: 2;
+}
+
+.history {
+    line-height: 2;
+}
 
 
 /* Products */
@@ -159,16 +180,16 @@
 .product-dealer {
     width: 100%;
     background-color: red;
-    padding: 10px;
-    margin: 70px 20px 30px 20px;
+    padding: 1%;
+    margin: 7% 2% 3% 2%;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
 .product-dealer1 {
     width: 100%;
     background-color: red;
-    padding: 10px;
-    margin: 20px 20px 30px 20px;
+    padding: 1%;
+    margin: 3% 2% 3% 2%;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
@@ -179,7 +200,7 @@
     font-size: 18px;
     width: 300px;
     height: 300px;
-    margin: 20px;
+    margin: 3%;
 }
 .product-img {
     max-width: 220px;
@@ -188,21 +209,6 @@
 
 .card-header{
     padding-bottom: 0;
-}
-
-
-
-
-
-
-/* About Us */
-
-.profile { 
-    line-height: 2;
-}
-
-.history {
-    line-height: 2;
 }
 
 
@@ -226,6 +232,7 @@
     padding: 4% 2% 2% 2%;
     
 }
+
 
 /* Elmer */
 
@@ -260,13 +267,13 @@
     height: 300px;
 }
 .elmer-video{
-    top: 620px;
+    top: 600px;
     width: 420px; 
     height: 250px;
     border-radius: 7%;
 }
 .view-elmer-text{
-    top: 620px;
+    top: 600px;
     position: absolute;
     right: 41%;
 }
@@ -305,8 +312,6 @@
     border: 0;
     cursor: pointer;
 }
-
-
 .container-fluid {
     padding: 1% 27% 0 10%;
     margin-bottom: 0;}
@@ -315,7 +320,7 @@
 /* Contact Us */
 
 #contact {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 td {
     padding-top: .5em;
