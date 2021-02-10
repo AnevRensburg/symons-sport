@@ -5,12 +5,9 @@
 
 
 @media (max-width: 1250px){
-    .navb1 {
-        padding: 0.5% 5% 0.5% 5%;
-        background-color: white;
-    }
     .navbar{
-        padding: 0.5% 5% 4% 5%;
+        padding-left: 5%;
+        padding-right: 5%;
         background-color: white;
     }
     .background-img {
@@ -32,11 +29,11 @@
 
 @media (max-width: 1100px){
     .navbar{
-        padding: 0.5% 3% 4% 3%;
+        padding-bottom: 0.5% 3% 4% 3%;
         background-color: white;
     }
     .navb1 {
-        padding: 0.5% 3% 0.5% 3%;
+        padding: 0.5% 3% 5% 3%;
         background-color: white;
     }
     #products {
@@ -52,9 +49,8 @@
         padding: 1% 27% 0 10%;
         margin-bottom: 200px;
     }
-    .container-fluid-dealers-phone{
-        padding: 1% 2% 0 2%;
-        margin-bottom: 200px;
+    .dealers-page{
+        padding: 1% 27% 0 0;
     } 
     .dealers {
         width: 18%;
@@ -79,11 +75,17 @@
 
 /* 800px */
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
     .background-img{
         height: 60%;
     }
-
+    #contact{
+        padding: 1% 27% 0 0;
+        margin-bottom: 5%;
+    }
+    .text-box{
+        width: 200px;
+    }
 }
 
 /* 700px */
@@ -91,6 +93,14 @@
 @media (max-width: 700px) {
     .background-img{
         opacity: 0;
+    }
+    .navbar{
+        padding: 0.5% 5% 10% 5%;
+        background-color: white;
+    }
+    .navb1 {
+        padding: 0.5% 5% 0.5% 5%;
+        background-color: white;
     }
 }
 

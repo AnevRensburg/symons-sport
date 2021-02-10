@@ -181,7 +181,7 @@
     width: 100%;
     background-color: red;
     padding: 1%;
-    margin: 7% 2% 3% 2%;
+    margin: 7% 2% 3% 0;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
@@ -189,7 +189,7 @@
     width: 100%;
     background-color: red;
     padding: 1%;
-    margin: 3% 2% 3% 2%;
+    margin: 3% 2% 3% 0;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
@@ -200,7 +200,7 @@
     font-size: 18px;
     width: 300px;
     height: 300px;
-    margin: 3% auto;
+    margin: auto;
 }
 .product-img {
     max-width: 220px;
@@ -230,7 +230,9 @@
     font-style: bold;
     font-size: 30px;
     padding: 4% 2% 2% 2%;
-    
+}
+.dealers-page{
+    margin-bottom: 5%;
 }
 
 
