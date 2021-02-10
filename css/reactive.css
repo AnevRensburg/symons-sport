@@ -41,7 +41,7 @@
     }
     #products {
         text-align: center;
-        padding: 1% 7% 200px 7%;
+        padding: 1% 7% 120px 7%;
     }    
 }
 
@@ -52,6 +52,10 @@
         padding: 1% 27% 0 10%;
         margin-bottom: 200px;
     }
+    .container-fluid-dealers-phone{
+        padding: 1% 2% 0 2%;
+        margin-bottom: 200px;
+    } 
     .dealers {
         width: 18%;
         -webkit-transition: all 0.5s;
@@ -66,8 +70,11 @@
     }
     #products {
         text-align: center;
-        padding: 1% 7% 200px 7%;
-    }   
+        padding: 1% 7% 150px 7%;
+    }  
+    .welcome {
+        margin: 5% auto 175px 14%;
+    } 
 }
 
 /* 800px */
@@ -76,6 +83,7 @@
     .background-img{
         height: 60%;
     }
+
 }
 
 /* 700px */
@@ -88,7 +96,7 @@
 
 /* 600px */
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
     .dealers {
         width: 25%;
         -webkit-transition: all 0.5s;
@@ -98,8 +106,5 @@
         padding: 0;
         width: 30%;
     }
-    .container-fluid {
-        padding: 1% 10% 0 10%;
-        margin-bottom: 200px;
-    } 
 }
+
