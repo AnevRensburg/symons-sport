@@ -200,7 +200,7 @@
     font-size: 18px;
     width: 300px;
     height: 300px;
-    margin: auto;
+    margin: 0 auto 1.5em auto;
 }
 .product-img {
     max-width: 220px;
@@ -229,7 +229,7 @@
 .province {
     font-style: bold;
     font-size: 30px;
-    padding: 4% 2% 2% 2%;
+    padding: 4% 2% 2% 3%;
 }
 .dealers-page{
     margin-bottom: 5%;
@@ -329,8 +329,6 @@ td {
     padding-bottom: .5em;
     padding-left: 2em;
     padding-right: 2em;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 .info {

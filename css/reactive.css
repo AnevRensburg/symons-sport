@@ -50,7 +50,8 @@
         margin-bottom: 200px;
     }
     .dealers-page{
-        padding: 1% 27% 0 0;
+        padding: 1% 27% 0 1%;
+        margin-bottom: 5%;
     } 
     .dealers {
         width: 18%;
@@ -69,7 +70,7 @@
         padding: 1% 7% 150px 7%;
     }  
     .welcome {
-        margin: 5% auto 175px 14%;
+        margin: 5% auto 42% 14%;
     } 
 }
 
