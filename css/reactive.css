@@ -119,3 +119,27 @@
     }
 }
 
+
+
+
+/* Height */
+
+
+@media (max-height: 700px) {
+    .navb2 {
+        padding: 0.5% 10% 2% 10%;
+        background-color: white;
+    }
+    .welcome{ 
+        margin: 3% auto 55px 14%;
+    }
+}
+
+
+@media (max-height: 650px) {
+    .navb2 {
+        padding: 0.5% 10% 1% 10%;
+        background-color: white;
+    }
+}
+

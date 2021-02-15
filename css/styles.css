@@ -231,9 +231,7 @@
     font-size: 30px;
     padding: 4% 2% 2% 3%;
 }
-.dealers-page{
-    margin-bottom: 5%;
-}
+
 
 
 /* Elmer */
@@ -314,16 +312,10 @@
     border: 0;
     cursor: pointer;
 }
-.container-fluid {
-    padding: 1% 27% 0 10%;
-    margin-bottom: 0;}
 
 
 /* Contact Us */
 
-#contact {
-    margin-bottom: 80px;
-}
 td {
     padding-top: .5em;
     padding-bottom: .5em;
