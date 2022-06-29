@@ -228,10 +228,9 @@ html {
     margin: 0 auto 1.5em auto;
 }
 .product-img {
-    max-width: 220px;
-    max-height: 220px;
+    max-width: 250px;
+    max-height: 210px;
 }
-
 .card-header{
     padding-bottom: 0;
 }
