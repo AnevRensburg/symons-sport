@@ -17,7 +17,6 @@ html {
 
 .navbar{
     padding: 0.5% 10%;
-    background-color: #fff;
 }
 .ssi-logo {
     width: 250px;
@@ -39,6 +38,33 @@ html {
 }
 .nav-item:hover {
     text-decoration: none;
+}
+
+/* Footer */
+
+.block {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+  }
+.animation {
+    width: auto;
+    height: 100px;
+    font-size: 0px;
+}
+.animation div {
+    display: inline-block;
+    width: auto;
+    float: none;
+    padding: 0 10px;
+}
+.carousel-img{
+    width: 130px;
 }
 
 
@@ -80,33 +106,34 @@ html {
 
 /* About Page */
 
+.about-page{
+    padding: 0 10% 100px;
+}
 .about-heading{
     font-family: 'Pridi', serif;
     margin: 50px 0 10px;
+    font-size: 32px;
 }
 .about-text {
     line-height: 2;
+    max-width: 900px;
 }
 
 /* Products */
 
 #products {
     text-align: center;
-    padding: 1% 15% 100px 15%;
+    padding: 0% 15% 100px 15%;
+}
+.first-heading{
+    font-size: 25px;
+    padding: 1% 1% 0;
 }
 .product-dealer {
     width: 100%;
     background-color: #ff0000;
     padding: 1%;
     margin: 7% 2% 3% 0;
-    font-size: 25px;
-    font-family: 'Roboto', sans-serif;
-}
-.product-dealer1 {
-    width: 100%;
-    background-color: #ff0000;
-    padding: 1%;
-    margin: 3% 2% 3% 0;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
@@ -141,30 +168,31 @@ html {
 .dealer-address {
     width: 600px;
 }
-
-.province {
+.province{
     font-style: bold;
     font-size: 30px;
     padding: 4% 2% 2% 3%;
 }
-
-.fa-arrow-alt-circle-up{
+.arrowup{
     position: fixed;
     right: 100px;
     bottom: 100px;
-    color: grey;
+    color: #808080;
     font-size: 50px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
-
-.fa-arrow-alt-circle-up:hover{
-color: red;
+.arrowup:hover{
+color: #ff0000;
 }
 
 
 /* Elmer */
 
+.elmer-heading{
+    padding: 20px 0 30px;
+    font-size: 38px;
+}
 .message-link {
     line-height: 2;
     color: grey;
@@ -244,42 +272,15 @@ color: red;
 /* Contact Page */
 
 .contact-content{
-    position: relative;
-    padding: 50px 0% 0 10%;
-    display: inline-block;
-    vertical-align: top;
+    padding: 0 10%;
 }
 .contact-heading{
-    padding-bottom: 10px;
+    padding: 50px 0 60px;
     font-size: 2rem;
 }
-
-
-
 td{
     vertical-align: top;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-.info {
-    padding-top: 50px;
-} 
-
-
-
-.contact-page{
-    min-height: 100vh;
-    position: relative;    
-    background-size: cover;
-    background-position: top;
-}
-.contact-box{
-    position: relative;
-    vertical-align: top;
-    padding-left: 10%;
+    padding: .5em 2em;
 }
 .mapouter{
     vertical-align: top;
@@ -289,60 +290,16 @@ td{
     left: 700px;
     max-width: 100%;
 }
-
-
-
-
-
-
-/* Footer */
-
-.block {
-    overflow: hidden;
-    width: 100%;
-    background: #fff;
-    padding: 10px 0;
-    height: 10vh;
-    position: fixed;
-    bottom: 0;
-    z-index: 5;
-  }
-.animation {
-    width: auto;
-    height: 100px;
-    font-size: 0px;
-}
-.animation div {
-    display: inline-block;
-    width: auto;
-    float: none;
-    padding: 0 10px;
-}
-.carousel-img{
-    width: 130px;
-}
-
-/* Copyright */
-
 #content-wrap {
     padding-bottom: 3rem;    /* Footer height */
 }
-#footer {
+#footer {    
+    color: #000;
+    font-size: 15px;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 3rem;            /* Footer height */
-}
-.copyright {
     text-align: center;
-    overflow: hidden;
-    padding: 0.3em;
-    z-index: 5;
-    background-color: rgba(255, 255, 255, 0);
 }
-.footer-text{
-    color: #fff;
-    font-size: 15px;
-    padding: 0%;
-    color: #000;
-}
+

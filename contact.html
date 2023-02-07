@@ -1,148 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Info</title>    
 
-    <head>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@500&display=swap" rel="stylesheet">    
     
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Symons Sport International</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reactive.css">    
     
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/710bc3df4e.js" crossorigin="anonymous"></script>    
     
-        <!-- CSS Stylesheets -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/reactive.css">
-    
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/710bc3df4e.js" crossorigin="anonymous"></script>
-    
-        <!-- Boostrap Scripts -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-      
-    </head>
+    <!-- Boostrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Page Description -->
+    <meta name="description" content="Welcome to our Contact Information page! Here, you 
+    can find all the necessary details to get in touch with us. We're 
+    always happy to help with any questions or concerns you may have. Send us an 
+    email, give us a call, or follow us on social media. Get in touch with us today!">
 
+</head>
 <body>
 
-<div class="contact-page">
 <div id="content-wrap">
         
-
     <!-- Nav Bar -->
-
-    <nav class="navbar navbar-expand-lg">
-        <img class="ssi-logo" src="logos/SSI-logo.png" alt="SSI-logo">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">   
-                <i class="fas fa-bars" style="color:#000; font-size:28px;"></i>
-            </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav margin-left ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="products.html">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dealers.html">Dealers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="elmer.html">Elmer</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-    <!-- Content -->
-
-    <div class="contact-content">
-        <h1 class="contact-heading">Contact Info</h1>
-        <div class="info">
-            <table class="contact-box">
-                <tr>
-                    <td>Office</td>
-                    <td>021 975 9629</td>
-                </tr>
-                <tr>
-                    <td>Sonja van Rensburg</td>
-                    <td>082 658 6866</td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>symons.sport@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>Address</td>
-                    <td>Unit 4 Durbanville Park <br>
-                        5 Lilie Street, Durbanville, <br>
-                        South Africa </td>
-                </tr>
-            </table>
-        </div>
-        <!-- <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=350&amp;hl=en&amp;q=5 Lilie Street, Durbanville, South Africa&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{text-align:right;width:100%;height:350px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:350px;}.gmap_iframe {height:350px!important;}</style></div> -->
+<nav class="navbar navbar-expand-xl">
+    <img class="ssi-logo" src="logos/SSI-logo.png" alt="SSI-logo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">   
+            <i class="fas fa-bars" style="color:#000; font-size:28px;"></i>
+        </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav margin-left ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dealers.html">Dealers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="elmer.html">Elmer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+            </li>
+        </ul>
     </div>
+</nav>
 
-
-
+<!-- Content -->
+<div class="contact-content">
+    <h1 class="contact-heading">Contact Info</h1>
+        <table>
+            <tr>
+                <td>Office</td>
+                <td>021 975 9629</td>
+            </tr>
+            <tr>
+                <td>Sonja van Rensburg</td>
+                <td>082 658 6866</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>symons.sport@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>Unit 4 Durbanville Park <br>
+                    5 Lilie Street, Durbanville, <br>
+                    South Africa </td>
+            </tr>
+        </table>
+    <!-- <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=350&amp;hl=en&amp;q=5 Lilie Street, Durbanville, South Africa&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{text-align:right;width:100%;height:350px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:350px;}.gmap_iframe {height:350px!important;}</style></div> -->
+</div>
 </div>
 
 <!-- Footer -->
-
-<footer id="footer" class="copyright footer-light">
-
-        <p class="footer-text">Copyright © 2023 Symons Sport International</p>
-    
+<footer id="footer">
+    <p>Copyright &copy; 2023 Symons Sport International</p>  
 </footer>
 
-</div>
-
-
-
-
-
-    
-
-    <!-- Footer Navbar
-
-    <div class="footernavbar">
-        <a href="products.html#EnduroEngineering-products"><img class="dealers" src="logos/EE-logo.png"
-                alt="EE-logo"></a>
-        <a href="products.html#Excel-products"><img class="dealers" src="logos/Excel-logo.jpg" alt="Excel-logo"></a>
-        <a href="products.html#Kite-products"><img class="dealers" src="logos/Kite-logo.png" alt="Kite-logo"></a>
-        <a href="products.html#RiskRacing-products"><img class="dealers" src="logos/Risk-logo.jpg" alt="Risk-logo"></a>
-        <a href="products.html#HaanWheels-products"><img class="dealers" src="logos/HaanWheels-logo.png"
-                alt="HaanWheels-logo"></a>
-        <a href="products.html#Crosspro-products"><img class="dealers" src="logos/CrossPro-logo.png"
-                alt="CrossPro-logo"></a>
-        <a href="products.html#Runleader-products"><img class="dealers" src="logos/Runleader-logo.jpg"
-                alt="Runleader-logo"></a>
-        <a href="products.html#Supersprox-products"><img class="dealers" src="logos/SuperSprox-logo.jpg"
-                alt="SuperSprox-logo"></a>
-        <a href="products.html#TMDesignWorks-products"><img class="dealers" src="logos/TMD-logo.jpg" alt="TMD-logo"></a>
-    </div> -->
-
-
 </body>
-
 </html>

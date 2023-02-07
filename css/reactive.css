@@ -1,0 +1,224 @@
+/* Media Queries */
+
+
+
+/* @media (max-width: 1000px){
+    .mapouter{
+        margin-top: 40px;
+        position: relative;
+        display: block;
+        right: 0;
+        max-width: 500px;
+    }
+}
+@media (max-width: 550px){
+    .mapouter{
+        margin-top: 20px;
+    }
+} */
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1300px){
+    .message-link {
+        display: none;
+    }
+    .message-link:hover {
+        display: none;
+    }
+    .click-here-link {
+        display: none;
+    }
+    .click-here-link:hover {
+        display: none;
+    }
+    .elmer-cont {
+        position: absolute;
+        left: 10%;
+    }
+    .elmer-img-1{
+        left: 350px;
+        width: 500px;
+        height: 250px;
+    }
+    .elmer-img-2{
+        width: 200px;
+        height: 300px;
+    }
+    .elmer-video{
+        top: 650px;
+        width: 420px; 
+        height: 250px;
+        border-radius: 7%;
+        margin-bottom: 50px;
+    }
+    .view-elmer-text{
+        top: 600px;
+    }
+    .message-container {
+        display: none;
+    }
+    .hidden {
+        display: none;
+    }
+    .overlay {
+        display: none;
+    }
+    .fa-times-circle {
+        display: none;
+    }
+    .more-messages{
+        display: none;
+    }
+    .elmer-tributes-text{
+        display: none;
+    }
+    .elmer-heading{
+        display: none;
+    }
+}
+
+
+
+
+/* 1250px */
+
+
+@media (max-width: 1250px){
+    #products {
+        text-align: center;
+        padding: 1% 10% 100px 10%;
+    }
+}
+
+/* 1100px */
+
+@media (max-width: 1100px){
+    #products {
+        text-align: center;
+        padding: 1% 7% 120px 7%;
+    }    
+}
+
+/* 1000px */
+
+@media (max-width: 1000px) {
+    .container-fluid {
+        padding: 1% 27% 200px 10%;
+    }
+    .dealers-page{
+        padding: 1% 27% 0 1%;
+        margin-bottom: 5%;
+    } 
+    .dealers {
+        width: 18%;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    .dealers:hover{
+        padding: 0;
+        width: 20%;
+    }
+    #products {
+        text-align: center;
+        padding: 1% 7% 150px 7%;
+    }  
+}
+
+
+@media (max-width: 900px) {
+    .elmer-img-1{
+        display: none;
+    }
+    .elmer-img-2{
+        width: 200px;
+        height: 300px;
+    }
+    .elmer-video{
+        top: auto;
+        margin-top: 50px;
+        left: 320px;
+        width: 420px; 
+        height: 250px;
+        border-radius: 7%;
+        margin-bottom: 50px;
+    }
+    .view-elmer-text{
+        left: 320px;
+        top: auto;
+    }
+}
+
+/* 800px */
+
+@media (max-width: 800px) {
+    .to-top-button{
+        display: none;
+    }
+    .background-img{
+        height: 60%;
+    }
+    .text-box{
+        width: 200px;
+    }
+    .elmer-img-2{
+        width: 200px;
+        height: 300px;
+    }
+    .elmer-video{
+        top: auto;
+        margin-top: 400px;
+        left: 10%;
+        width: 420px; 
+        height: 250px;
+        border-radius: 7%;
+        margin-bottom: 50px;
+    }
+    .view-elmer-text{
+        left: 10%;
+        top: 500px;
+    }
+}
+
+
+/* Checked */
+
+@media (max-width: 1250px){
+    .navbar{
+        padding: 0.5% 5%;
+    }
+    .header {
+        left: 5%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 550px) {
+    /* Home */
+    .header {
+        left: 0;
+        width: 100%;
+    }
+    .welcome {
+        position: relative;
+        left: unset;
+        margin: 0 20px;
+        width: auto;
+        background-color: rgb(255, 255, 255, 0.85);
+    }
+    /* About */
+    .about-page{
+        padding: 0 6% 100px;
+    }
+    .about-heading{
+        margin: 40px 0 10px;
+    }
+}
