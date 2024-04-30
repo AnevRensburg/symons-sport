@@ -4,4 +4,4 @@ This is a commercial website Symons Sport International, a motorcycle parts dist
 
 [Live Website](https://www.symons-sport.co.za/)
 
-I have designed and implemented this website using Javascript, HTML, CSS with Bootstrap. My approach avoids the use of website generators like WordPress and CMS platforms, allowing me to apply and enhance my skills effectively. These sites are reactive and present well on all mobile devices as well as full-sized computer screens.
+I have designed and implemented this website using Javascript, HTML, CSS with Bootstrap. My approach avoids the use of website generators like WordPress and CMS platforms, allowing me to apply and enhance my skills effectively. This site is reactive and presents well on all mobile devices as well as full-sized computer screens.
