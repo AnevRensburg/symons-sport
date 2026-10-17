@@ -268,6 +268,12 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         address: '#15, D246, Cato Ridge, 3680',
       },
       {
+        name: 'AOV Tech',
+        phone: '076 819 7736',
+        tel: '+27768197736',
+        address: 'Unit 29 Fischer,Blessing Ninela Road, Hillcrest, 3610',
+      },
+      {
         name: 'Ekerold Yamaha',
         phone: '033 345 3503',
         tel: '+27333453503',
@@ -338,12 +344,6 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         phone: '079 376 7077',
         tel: '+27793767077',
         address: '16, P500, Umlaas Road, Camperdown,KZN',
-      },
-      {
-        name: 'TR-Tec Adventure',
-        phone: '076 819 7736',
-        tel: '+27768197736',
-        address: 'Unit 29 Fischer,Blessing Ninela Road, Hillcrest, 3610',
       },
     ],
   },
@@ -606,7 +606,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
     name: 'Mpumalanga',
     dealers: [
       {
-        name: 'No Limits Racing',
+        name: 'NL Racing',
         phone: '076 365 6625',
         tel: '+27763656625',
         address: 'Shop 34 Sonpark Industrial, Nelspruit 1200',

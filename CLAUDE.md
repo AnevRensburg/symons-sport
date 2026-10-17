@@ -58,11 +58,12 @@ Tick items off (`- [x]`) when they are done, don't delete them.
       project. It was left untouched because the old site must not be modified. Update or archive
       it when the old repo is retired.
 
-- [ ] **TR-Tec Adventure → AOV Tech** (Hillcrest, KZN): not applied. No trace of "AOV Tech" was
+- [x] **TR-Tec Adventure → AOV Tech** (Hillcrest, KZN): applied 2026-10-17 at the user's request. No trace of "AOV Tech" was
       found online (checked 2026-10-17). Confirm with the dealer or the client.
-- [ ] **No Limits Racing → NL Racing** (Nelspruit): not applied. Online the shop now appears as
+- [x] **No Limits Racing → NL Racing** (Nelspruit): applied 2026-10-17 at the user's request. Online the shop now appears as
       "NL Auto & Bike" at 34 Christie Crescent, Vintonia, Mbombela (site lists Shop 34 Sonpark
       Industrial). Confirm the exact name and address.
+      The site's address was left unchanged.
 - [ ] **RAD Paarl address:** renamed from KTM Paarl (confirmed). A 2026 news item says it moved to
       2 New Eskdale Str, Paarl South; the site still shows Zandwyk Business Park, R101. Confirm.
 - [ ] **The Roost address:** set to "Atlas Rd, Boksburg 1459" as given. Their own site lists Unit 12
@@ -131,4 +132,4 @@ From the client's email "Website" (2026-07-22), done 2026-10-17:
 - [x] Dealer updates (2026-10-17), each checked online first: The Roost moved to Atlas Rd,
       Boksburg 1459; new dealer UB Leisure (012 331 1224, 34 Banghoek Crescent, Pretoria); Locomoto
       moved from Westville (KZN) to Hermanus (Western Cape); KTM Paarl renamed RAD Paarl; Vans Big
-      Boy Scooters renamed Vans Motorcycles. AOV Tech and NL Racing are on hold (see above).
+      Boy Scooters renamed Vans Motorcycles. AOV Tech and NL Racing were applied later at the user's request (see above).
