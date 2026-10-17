@@ -127,7 +127,8 @@ Each was checked online on 2026-10-17.
       history was merged in with the "ours" strategy, so `main` contains only the Angular site.
 - [ ] Get the business owner's sign-off on the whole site (content, new products, dealer list,
       the Elmer page intro that was added in the rebuild).
-- [ ] Test on a real iPhone (Safari) and an Android phone. Testing so far was in Chromium only.
+- [x] Real-phone check: the user checked the live site on a phone on 2026-10-17 and it looks good.
+      If that was Android, also check once on an iPhone (Safari), or the other way round.
 - [x] YouTube video (06eL79XSmBk) on the Elmer page: the owner wants to keep it. It is hosted on
       someone else's channel ("VCMC Wheelie 05 16 04" by Geno TF2), so check now and then that it
       still plays.
@@ -137,8 +138,30 @@ Each was checked online on 2026-10-17.
       custom domain `www.symons-sport.co.za` and **Enforce HTTPS** kept.
 - [x] DNS: `www` is a CNAME to `anevrensburg.github.io` and the bare domain points at GitHub Pages
       (checked 2026-10-17); nothing to change.
-- [ ] After launch, run Lighthouse on the live site and submit `sitemap.xml` in Google Search
-      Console.
+- [x] Site launched on 2026-10-17 (live at https://www.symons-sport.co.za).
+
+### After launch
+
+- [ ] **Google Search Console:** add a **Domain** property for `symons-sport.co.za` (verify with the
+      DNS TXT record at the domain registrar; it covers www, the bare domain, http and https).
+      Then submit `https://www.symons-sport.co.za/sitemap.xml` and use **URL Inspection → Request
+      indexing** for the home, products, dealers and contact pages. Check the **Pages** report after
+      1–2 weeks. The old `*.html` URLs showing as redirects is expected.
+- [ ] **Bing Webmaster Tools** (optional): import the site from Search Console in one step.
+- [ ] **Google Business Profile:** change the address to Unit 3, 30 Bella Rosa St, Bellville, 7550
+      (may need re-verification), and check the website link, phone numbers, hours and photos.
+- [ ] **PageSpeed Insights** (pagespeed.web.dev) on the live home and products pages, mobile.
+      Local tests scored 97–99 for Performance and 100 for Accessibility, Best Practices and SEO.
+- [ ] **Rich Results Test** (search.google.com/test/rich-results) on the home and contact pages:
+      the LocalBusiness data should be valid.
+- [ ] **Link previews:** paste the link into WhatsApp to check the preview image and title. If
+      Facebook shows the old preview, refresh it in the Facebook Sharing Debugger.
+- [ ] **Old address elsewhere:** update the Facebook page and any directory listings (e.g. dealer
+      or brand websites, AutoTrader, Yellow Pages) that still show the Durbanville address.
+- [ ] **Domain renewal:** confirm who renews `symons-sport.co.za` at the registrar and when.
+      GitHub renews the HTTPS certificate automatically.
+- [ ] **Each January:** the footer year is set at build time. If nothing has been pushed in the new
+      year, re-run the deploy (GitHub → Actions → "Deploy to GitHub Pages" → Run workflow).
 
 ### Requested changes
 
