@@ -1,18 +1,28 @@
 # Symons Sport International
 
-Website for [Symons Sport International](https://www.symons-sport.co.za), importer and distributor of
-MX, enduro and off-road motorcycle parts in Bellville, Cape Town.
+The website of [Symons Sport International](https://www.symons-sport.co.za), importer and
+distributor of quality MX, enduro and off-road motorcycle parts in Bellville, Cape Town. The site
+shows the brands and products the company distributes, the dealers that stock them across Southern
+Africa, the company's contact details, and a tribute page for co-founder Elmer Symons.
 
-Built with Angular 22 (standalone components, signals, zoneless change detection, strict TypeScript, SCSS).
-Every route is **prerendered to static HTML** at build time. There is no backend, and the output is
-hosted on GitHub Pages.
+## How it works
 
-This is the company's live business website, not a portfolio project. It shows static information
-only (products, dealers, contact details), so it makes no API or network calls. Interactive parts
-(the mobile menu, product and dealer search, the tribute dialog and the video player) run in the
-browser.
+- Built with **Angular 22**: standalone components, signals, zoneless change detection, strict
+  TypeScript and SCSS. No UI libraries (no Bootstrap, jQuery or icon fonts).
+- Every page is **prerendered to static HTML** at build time, so the site needs no server or
+  backend and makes no API calls. Only the interactive parts run in the browser: the mobile menu,
+  product and dealer search, the tribute message dialog and the click-to-load YouTube video.
+- Hosted on **GitHub Pages** at www.symons-sport.co.za, deployed automatically by GitHub Actions on
+  every push to `main`.
+- Images are served as AVIF and WebP in several sizes, the Pridi heading font is self-hosted, and
+  each page has its own title, description, canonical URL, social preview tags and (home and
+  contact) business details for search engines.
 
-Open to-dos, decisions and manual launch steps are tracked in [CLAUDE.md](CLAUDE.md).
+This repository also used to hold the original hand-written HTML/Bootstrap site (2021–2024). That
+version is still in the git history (last commit `48189c0`), but only the Angular site is on `main`.
+
+Open to-dos, dealer questions for the business owner and launch notes are tracked in
+[CLAUDE.md](CLAUDE.md).
 
 ## Requirements
 
@@ -53,42 +63,46 @@ src/app/
   data/      products.ts, dealers.ts, tributes.ts, brands.ts, image-manifest.ts (generated)
 public/      static files copied as-is: images/, fonts/, docs/, CNAME, robots.txt, sitemap.xml
 scripts/     optimize-images.mjs, postbuild.mjs
+.github/     deploy workflow (lint, build, publish to GitHub Pages)
 ```
 
-### Editing content
+## Editing content
 
-- **Products:** `src/app/data/products.ts`. To add an image, put the original in `image-sources/`,
-  add it to the list in `scripts/optimize-images.mjs` as `new/<file>` and run `npm run images`.
-- **Dealers:** `src/app/data/dealers.ts`. The `tel` field is the number in international format for
-  `tel:` links.
-- **Contact details** (also used in the footer and JSON-LD): `src/app/core/site.ts`.
+- **Products:** `src/app/data/products.ts`. To add a photo, put the original in `image-sources/`,
+  add it to the list in `scripts/optimize-images.mjs` as `new/<file>`, run `npm run images`, then
+  add the product with the new image key.
+- **Dealers:** `src/app/data/dealers.ts`, grouped by province or country. The `tel` field is the
+  number in international format for `tel:` links (e.g. `+27219759629`).
+- **Brand logos in the carousel:** `src/app/data/brands.ts`.
+- **Contact details** (also used in the footer and search engine data): `src/app/core/site.ts`.
 - **Page titles and descriptions:** the `seo` data on each route in `src/app/app.routes.ts`. If you
   add a page, add it to `public/sitemap.xml` too.
 
+After a change, run `npm run lint` and `npm run build`, check it with `npm run serve:dist`, then
+push to `main` to publish.
+
 ## Images
 
-`npm run images` reads the originals from the old static site (by default `../symons-sport`; to
-use another folder, run `npm run images -- --source <path>`) and newer originals supplied by the
-client from `image-sources/` (gitignored, so keep a backup of it). It writes
-AVIF + WebP at 2–3 widths into `public/images/`, along with the Open Graph image, the favicons and
-`src/app/data/image-manifest.ts`. Only the optimised output is committed. `sharp` is a dev
-dependency only.
+`npm run images` turns original photos into AVIF + WebP at 2–3 widths in `public/images/`, and also
+writes the social preview image, the favicons and `src/app/data/image-manifest.ts`. Only the
+optimised output is committed; `sharp` is a dev dependency only.
 
-Pridi 500 (latin subset, OFL licence) is self-hosted from `public/fonts/`. No Google Fonts requests
-are made.
+It reads two sets of originals:
 
-## Deploying to GitHub Pages
+- **The original site's images**, from `../symons-sport` by default (or
+  `npm run images -- --source <path>`). They are no longer on `main`; to get them back, check out the
+  old site from the history: `git worktree add ../symons-sport-original 48189c0`.
+- **Newer photos from the client** (new products, the official logo), from `image-sources/`. This
+  folder is gitignored, so keep a backup of it.
 
-1. Push this repository to GitHub.
-2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-3. Every push to `main` runs `.github/workflows/deploy.yml`, which lints, builds and publishes
-   `dist/symons-sport-angular/browser`.
-4. Custom domain: `public/CNAME` contains `www.symons-sport.co.za`. In **Settings → Pages**, set
-   the custom domain to the same value and tick **Enforce HTTPS**. Keep the DNS `CNAME` record for
-   `www` pointing at `<username>.github.io`.
+## Deployment
 
-To deploy by hand instead, build locally and publish the contents of
-`dist/symons-sport-angular/browser/` (including `.nojekyll` and `CNAME`) to the Pages branch.
+Every push to `main` runs `.github/workflows/deploy.yml`, which installs, lints, builds and
+publishes `dist/symons-sport-angular/browser` to GitHub Pages. Repository settings:
 
-GitHub Pages serves each route as a folder (`/about/index.html`), so the canonical URLs and the
-sitemap use a trailing slash (`/about/`).
+- **Settings → Pages → Source:** GitHub Actions
+- **Custom domain:** `www.symons-sport.co.za`, with **Enforce HTTPS** on. The DNS `CNAME` record
+  for `www` points at `anevrensburg.github.io`, and the bare domain redirects to `www`.
+
+GitHub Pages serves each route as a folder (`/about/index.html`), so canonical URLs and the sitemap
+use a trailing slash (`/about/`).

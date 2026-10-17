@@ -5,7 +5,9 @@ Cape Town). Angular 22, standalone components, signals, zoneless, strict TS, SCS
 prerendered to static HTML (`outputMode: "static"`) and hosted on GitHub Pages at
 www.symons-sport.co.za. No backend and no API calls, ever. Content changes are cosmetic or data-only.
 
-The old static site lives in `../symons-sport`. Never modify it.
+The old static site lives in `../symons-sport` (a local checkout). Never modify that folder. The
+GitHub repo `AnevRensburg/symons-sport` now holds this Angular site on `main`; the old site's
+code is only in its git history (last old commit `48189c0`).
 
 ## Commands
 
@@ -53,9 +55,9 @@ Tick items off (`- [x]`) when they are done, don't delete them.
       The linked PDF (`public/docs/elmers-messages.pdf`) was scanned and has no contact details.
 - [x] CrossPro: the owner asked to remove it everywhere. The logo was taken out of the carousel,
       the image script and the image files on 2026-10-17 (its products were never on the site).
-- [ ] The old site's README (`../symons-sport/README.md`) still describes the site as a portfolio
-      project. It was left untouched because the old site must not be modified. Update or archive
-      it when the old repo is retired.
+- [x] The repo README no longer calls the site a portfolio project: the old site's files (including
+      its README) were replaced by this project when it was published to `AnevRensburg/symons-sport`
+      on 2026-10-17.
 
 ### Dealer questions
 
@@ -121,10 +123,8 @@ Each was checked online on 2026-10-17.
 
 ### Manual steps before going live
 
-- [ ] Decide where to publish. The live site is GitHub Pages from `AnevRensburg/symons-sport`
-      (checked 2026-10-17), which owns the custom domain. Either (a) push this project to that same
-      repo (DNS and domain stay as they are), or (b) use a new repo: remove the custom domain from
-      the old repo's Pages settings first, then add it to the new one (a few minutes of downtime).
+- [x] Publish to the same repo, `AnevRensburg/symons-sport` (user's choice, 2026-10-17). The old
+      history was merged in with the "ours" strategy, so `main` contains only the Angular site.
 - [ ] Get the business owner's sign-off on the whole site (content, new products, dealer list,
       the Elmer page intro that was added in the rebuild).
 - [ ] Test on a real iPhone (Safari) and an Android phone. Testing so far was in Chromium only.
@@ -132,11 +132,11 @@ Each was checked online on 2026-10-17.
       someone else's channel ("VCMC Wheelie 05 16 04" by Geno TF2), so check now and then that it
       still plays.
 - [ ] Back up `image-sources/` (gitignored: the client's new photos and the logo cut from the PDF).
-- [ ] Push the repo to GitHub (only after the user confirms).
-- [ ] In GitHub **Settings → Pages**, set **Source** to **GitHub Actions**, set the custom domain to
-      `www.symons-sport.co.za` and tick **Enforce HTTPS**.
-- [ ] Keep the DNS `CNAME` record for `www` pointing at `<username>.github.io` (already the case
-      for the old site; the bare domain already redirects to www).
+- [x] Push the repo to GitHub (user confirmed 2026-10-17).
+- [x] GitHub **Settings → Pages**: source switched from "deploy from branch" to **GitHub Actions**;
+      custom domain `www.symons-sport.co.za` and **Enforce HTTPS** kept.
+- [x] DNS: `www` is a CNAME to `anevrensburg.github.io` and the bare domain points at GitHub Pages
+      (checked 2026-10-17); nothing to change.
 - [ ] After launch, run Lighthouse on the live site and submit `sitemap.xml` in Google Search
       Console.
 
