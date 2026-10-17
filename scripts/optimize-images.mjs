@@ -92,7 +92,6 @@ const logos = [
   ['logos/Kite-logo.png', 'kite'],
   ['logos/Risk-logo.jpg', 'risk-racing'],
   ['logos/HaanWheels-logo.png', 'haan-wheels'],
-  ['logos/CrossPro-logo.png', 'crosspro'],
   ['logos/Runleader-logo.jpg', 'runleader'],
   ['logos/SuperSprox-logo.jpg', 'supersprox'],
   ['logos/TMD-logo.jpg', 'tm-designworks'],

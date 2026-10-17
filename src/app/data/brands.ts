@@ -12,7 +12,6 @@ export const BRANDS: readonly Brand[] = [
   { name: 'Kite', logo: 'logos/kite' },
   { name: 'Risk Racing', logo: 'logos/risk-racing' },
   { name: 'Haan Wheels', logo: 'logos/haan-wheels' },
-  { name: 'CrossPro', logo: 'logos/crosspro' },
   { name: 'Runleader', logo: 'logos/runleader' },
   { name: 'Supersprox', logo: 'logos/supersprox' },
   { name: 'TM Designworks', logo: 'logos/tm-designworks' },

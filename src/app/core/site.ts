@@ -10,15 +10,15 @@ export const SITE = {
     { label: 'Sonja van Rensburg', display: '082 658 6866', tel: '+27826586866' },
   ],
   address: {
-    lines: ['Unit 3, 30 Bella Rosa St', 'Bellville, 7530', 'Cape Town, South Africa'],
+    lines: ['Unit 3, 30 Bella Rosa St', 'Bellville, 7550', 'Cape Town, South Africa'],
     street: 'Unit 3, 30 Bella Rosa St',
     locality: 'Bellville',
-    postalCode: '7530',
+    postalCode: '7550',
     region: 'Western Cape',
     country: 'ZA',
   },
   mapUrl:
-    'https://www.google.com/maps/search/?api=1&query=30+Bella+Rosa+St%2C+Bellville%2C+7530%2C+South+Africa',
+    'https://www.google.com/maps/search/?api=1&query=30+Bella+Rosa+St%2C+Bellville%2C+7550%2C+South+Africa',
 } as const;
 
 /** schema.org LocalBusiness description, injected as JSON-LD on the home and contact pages. */

@@ -87,7 +87,7 @@ export const TRIBUTES: readonly Tribute[] = [
     paragraphs: [
       'Hey Philip,',
       'I am terribly sorry to hear the news of Elmer in the Dakar, my prayers go out to you and your family. Elmer was always good to me and never let his great success get the better of him always down to earth,the same as the first time me ,paul eastwood and mike munroe took you and elmer to the Harrismith enduro and Elmer was on a DT 125 and he finished first, do you remember?',
-      "Well Philip, I now live here in the USA:\n1116 Windsor drive\nJeffersonville\nIN\n47130\nPaul Aniceto\nIf theres anything I can do there's the address.",
+      'Well Philip, I now live here in the USA.\nPaul Aniceto',
     ],
   },
   {
@@ -96,7 +96,7 @@ export const TRIBUTES: readonly Tribute[] = [
     paragraphs: [
       'Hi Phil',
       'It is with great sadness i write to you please accept our condolences for the sad loss of Elmer. Many times i told you Elmer was the best rider I had ever seen remember at the Roof when he beat all the guys by 20 minutes. It was a very sad day for all may God bless you and your family at this time.',
-      'Please call me if you need anything. 0837020658\nGod Bless\nMark & Liz Chemaly',
+      'Please call me if you need anything.\nGod Bless\nMark & Liz Chemaly',
     ],
   },
   {
@@ -113,7 +113,7 @@ export const TRIBUTES: readonly Tribute[] = [
     author: 'Kathy Fletcher',
     paragraphs: [
       "Oh my, he was so happy to be doing this, so grateful to you that you helped him achieve this goal, we talked about it the day he left the states. I am so sad to have lost this friend, I can only imagine the grief you must feel. I keep thinking it just can't be true, that there is some horrible mistake. If there is anything we can do, can help with, please let Malcolm or Troy or I know. We will do our best to help. Elmer was such a blessing in my life. He often spoke of the influence you had in making him the man he was. Thank you for that. He is loved and will be sorely missed.",
-      'Kathy Fletcher\n6200 Hawarden Dr\nRiverside, CA 92506\nantk@mac.com\nkfletcher@malcolmsmith.com',
+      'Kathy Fletcher',
     ],
   },
   {
@@ -130,7 +130,7 @@ export const TRIBUTES: readonly Tribute[] = [
     author: 'Bryan Henson',
     paragraphs: [
       'Philip,',
-      'I am strucken with a loss for words right now. Elmer was a true friend to me and I would have done anything for him and without a doubt he would return the favor. During the time spent with Elmer I felt like we became pretty close. I will never forget about Elmer and I will continue to tell people of him. Please contact me some how e-mail henson618@hotmail.com or phone 864-706-1925',
+      'I am strucken with a loss for words right now. Elmer was a true friend to me and I would have done anything for him and without a doubt he would return the favor. During the time spent with Elmer I felt like we became pretty close. I will never forget about Elmer and I will continue to tell people of him.',
       'Best Regard,\nBryan Henson',
     ],
   },
@@ -158,7 +158,7 @@ export const TRIBUTES: readonly Tribute[] = [
     paragraphs: [
       'Dear Philip',
       "Please accept my deepest sympathy, and know that you are in my prayers. A tragic and shocking loss. Elmer was my age and I cannot stop thinking about how close to home this feels to me and I have never met him or you. I remember looking at Elmer's site last week thinking that I would like to be able to attempt the Dakar one day too, and respecting everything Elmer has achieved. Please advise on where the funeral will be, If I cannot be there at least I could spare a moment of silence for a real hero.",
-      'Sincerely yours\nEtienne vd Merwe\n0834525973',
+      'Sincerely yours\nEtienne vd Merwe',
     ],
   },
 ];

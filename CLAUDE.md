@@ -39,21 +39,20 @@ Tick items off (`- [x]`) when they are done, don't delete them.
 ### Decisions for the user
 
 - [ ] The business moved from Unit 4 Durbanville Park, 5 Lilie Street, Durbanville to
-      Unit 3, 30 Bella Rosa St, Bellville, 7530 (updated on the site 2026-10-17). The office number
+      Unit 3, 30 Bella Rosa St, Bellville, 7550 (updated on the site 2026-10-17). The office number
       021 975 9629 is unchanged (confirmed by the client's email signature). Update the Google
       Business Profile address so it matches the site.
-- [ ] The client's email gives the address without a postal code; 7530 came from you. Confirm it.
+- [x] Postal code: the owner confirmed **7550** (was 7530 on the site). Changed 2026-10-17.
 - [ ] The client asked you to keep track of the time you spend on the website ("Hou asb. boek van
       jou tyd"). Log your hours.
-- [ ] The client's logo PDF also contains a "Renz.co.za" logo. It isn't used on the site; check
-      whether they want it anywhere (e.g. the brand carousel or footer).
+- [x] The "Renz.co.za" logo in the client's logo PDF: the owner said not to use it.
 
-- [ ] Tribute messages include private contact details (Kathy Fletcher's home address and emails,
-      Bryan Henson's email and phone, Mark Chemaly's and Etienne vd Merwe's phone numbers). They are
-      kept exactly as on the old site. Decide whether to remove them.
-- [ ] Crosspro products (standard bashplates, bashplates with linkage guard) were commented out on
-      the old site and are not included. The CrossPro logo is still in the brand carousel. Confirm
-      whether CrossPro is still sold.
+- [x] Private details in the tribute messages: the owner asked to remove them. Removed on
+      2026-10-17: Paul Aniceto's and Kathy Fletcher's home addresses, Kathy Fletcher's and Bryan
+      Henson's emails, and Bryan Henson's, Mark Chemaly's and Etienne vd Merwe's phone numbers.
+      The linked PDF (`public/docs/elmers-messages.pdf`) was scanned and has no contact details.
+- [x] CrossPro: the owner asked to remove it everywhere. The logo was taken out of the carousel,
+      the image script and the image files on 2026-10-17 (its products were never on the site).
 - [ ] The old site's README (`../symons-sport/README.md`) still describes the site as a portfolio
       project. It was left untouched because the old site must not be modified. Update or archive
       it when the old repo is retired.
@@ -129,8 +128,9 @@ Each was checked online on 2026-10-17.
 - [ ] Get the business owner's sign-off on the whole site (content, new products, dealer list,
       the Elmer page intro that was added in the rebuild).
 - [ ] Test on a real iPhone (Safari) and an Android phone. Testing so far was in Chromium only.
-- [ ] Confirm the YouTube video (06eL79XSmBk) is still wanted: it is hosted on someone else's
-      channel ("VCMC Wheelie 05 16 04" by Geno TF2) and could be removed by them at any time.
+- [x] YouTube video (06eL79XSmBk) on the Elmer page: the owner wants to keep it. It is hosted on
+      someone else's channel ("VCMC Wheelie 05 16 04" by Geno TF2), so check now and then that it
+      still plays.
 - [ ] Back up `image-sources/` (gitignored: the client's new photos and the logo cut from the PDF).
 - [ ] Push the repo to GitHub (only after the user confirms).
 - [ ] In GitHub **Settings → Pages**, set **Source** to **GitHub Actions**, set the custom domain to

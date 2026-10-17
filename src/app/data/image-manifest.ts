@@ -239,11 +239,6 @@ export const IMAGE_MANIFEST = {
     height: 87,
     widths: [160, 320],
   },
-  'logos/crosspro': {
-    width: 320,
-    height: 136,
-    widths: [160, 320],
-  },
   'logos/runleader': {
     width: 300,
     height: 47,
