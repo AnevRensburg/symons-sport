@@ -2,47 +2,73 @@
   <h1 id="top">Our Products</h1>
   <p class="intro prose">
     Quality MX, enduro and off-road motorcycle parts from leading international brands, available
-    from
-    <a routerLink="/dealers">our dealers</a> across Southern Africa.
+    from <a routerLink="/dealers">our dealers</a> across Southern Africa.
   </p>
 
-  <nav class="jump" aria-label="Product categories">
-    <ul role="list">
+  <ng-template #brandMenu>
+    <ul class="side-menu" role="list">
       @for (category of categories; track category.id) {
         <li>
-          <a routerLink="." [fragment]="category.id">{{ category.title }}</a>
+          <a
+            class="side-menu__item"
+            [href]="'/products/#' + category.id"
+            (click)="goTo($event, category.id)"
+            >{{ category.title }}</a
+          >
         </li>
       }
     </ul>
-  </nav>
+  </ng-template>
 
-  @for (category of categories; track category.id; let i = $index) {
-    <section class="category" [attr.aria-labelledby]="category.id">
-      <h2 class="section-bar" [id]="category.id">{{ category.title }}</h2>
-      @if (i < eagerCount) {
-        <ul class="grid" role="list">
-          @for (product of category.products; track product.image) {
-            <li><app-product-card [product]="product" /></li>
+  <div class="catalog">
+    <nav class="catalog__aside--desktop" aria-label="Brands">
+      <h2 class="side-menu__heading">Brands</h2>
+      <ng-container [ngTemplateOutlet]="brandMenu" />
+    </nav>
+
+    <div class="results" #results>
+      <div class="catalog__toolbar">
+        <label>
+          <span class="visually-hidden">Search products or brands</span>
+          <input
+            type="search"
+            class="catalog__search"
+            placeholder="Search products or brands, e.g. sprockets or Kite"
+            autocomplete="off"
+            [value]="query()"
+            (input)="onSearch($event)"
+          />
+        </label>
+        <nav class="toolbar-menu" aria-label="Brands (compact)">
+          <ng-container [ngTemplateOutlet]="brandMenu" />
+        </nav>
+        <p class="catalog__status" aria-live="polite">
+          @if (query()) {
+            {{ matchCount() }} {{ matchCount() === 1 ? 'product' : 'products' }} found
           }
-        </ul>
-      } @else {
-        <!-- Prerendered in full for SEO and hydrated only when scrolled into view. After client-side
-             navigation it renders on idle, so the jump links above land in the right place. -->
-        @defer (on idle; hydrate on viewport) {
+        </p>
+      </div>
+
+      @for (category of filtered(); track category.id) {
+        <section class="category" [attr.aria-labelledby]="category.id">
+          <h2 class="section-bar" [id]="category.id">{{ category.title }}</h2>
           <ul class="grid" role="list">
             @for (product of category.products; track product.image) {
               <li><app-product-card [product]="product" /></li>
             }
           </ul>
-        } @placeholder {
-          <div class="grid-placeholder"></div>
-        }
+        </section>
+      } @empty {
+        <p class="empty">
+          No products match "{{ query() }}". Try a brand name such as Supersprox, or
+          <a routerLink="/contact">contact us</a> to ask about a part.
+        </p>
       }
-    </section>
-  }
 
-  <a class="to-top" routerLink="." fragment="top">
-    <app-icon name="arrow-up" />
-    Back to top
-  </a>
+      <a class="to-top" routerLink="." fragment="top">
+        <app-icon name="arrow-up" />
+        Back to top
+      </a>
+    </div>
+  </div>
 </div>

@@ -7,6 +7,13 @@ Built with Angular 22 (standalone components, signals, zoneless change detection
 Every route is **prerendered to static HTML** at build time. There is no backend, and the output is
 hosted on GitHub Pages.
 
+This is the company's live business website, not a portfolio project. It shows static information
+only (products, dealers, contact details), so it makes no API or network calls. Interactive parts
+(the mobile menu, product and dealer search, the tribute dialog and the video player) run in the
+browser.
+
+Open to-dos, decisions and manual launch steps are tracked in [CLAUDE.md](CLAUDE.md).
+
 ## Requirements
 
 - Node.js 24 LTS (Angular 22 supports `^22.22.3 || ^24.15.0 || ^26.0.0`)

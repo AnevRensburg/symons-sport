@@ -12,10 +12,16 @@
   }
 }
 
-.header {
+/* Sticky on the host: a sticky element only sticks within its parent, and the host wraps the header. */
+:host {
   position: sticky;
   inset-block-start: 0;
   z-index: 20;
+  display: block;
+}
+
+.header {
+  position: relative;
   background: var(--color-bg);
   border-block-end: 1px solid var(--color-border);
 }
@@ -25,13 +31,12 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  min-block-size: 4.5rem;
+  block-size: var(--header-height);
 }
 
 .header__logo {
   display: block;
-  inline-size: 180px;
-  padding-block: var(--space-2);
+  inline-size: 150px;
 }
 
 .header__toggle {
@@ -88,12 +93,8 @@
 }
 
 @media (min-width: 64em) {
-  .header__inner {
-    min-block-size: 6rem;
-  }
-
   .header__logo {
-    inline-size: 250px;
+    inline-size: 220px;
   }
 
   .header__toggle {

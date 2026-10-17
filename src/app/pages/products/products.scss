@@ -2,40 +2,42 @@
   color: var(--color-muted);
 }
 
-.jump ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin: var(--space-4) 0 0;
-  padding: 0;
-  list-style: none;
+.results {
+  scroll-margin-block-start: var(--header-height);
 }
 
-.jump a {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  color: var(--color-text);
-  font-size: 0.95rem;
-  text-decoration: none;
+/* The toolbar's own copy of the brand menu is only used below 64em (see .catalog in styles.scss). */
+@media (min-width: 64em) {
+  .toolbar-menu {
+    display: none;
+  }
+}
 
-  &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-text);
-    background: var(--color-surface);
+.category .section-bar {
+  margin-block-start: var(--space-5);
+  /* Leave room for the sticky header and search toolbar when jumping to a brand. */
+  scroll-margin-block-start: calc(var(--header-height) + 8.5rem);
+}
+
+.category:first-of-type .section-bar {
+  margin-block-start: var(--space-3);
+}
+
+@media (min-width: 64em) {
+  .category .section-bar {
+    scroll-margin-block-start: calc(var(--header-height) + 7.5rem);
   }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
   gap: var(--space-4);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.grid-placeholder {
-  min-block-size: 22rem;
+.empty {
+  margin-block: var(--space-5);
 }

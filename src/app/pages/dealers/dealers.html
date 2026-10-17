@@ -1,66 +1,90 @@
 <div class="page container">
-  <h1 id="top">Our Dealers</h1>
+  <h1>Our Dealers</h1>
   <p class="intro prose">
     Our products are available from {{ total }} reputable dealerships throughout South Africa,
     Namibia, Mauritius and Zimbabwe. Want to stock our brands?
     <a routerLink="/contact">Contact us</a> to become a dealer.
   </p>
 
-  <div class="tools">
-    <label class="search">
-      <span class="search__label">Search dealers by name, town or province</span>
-      <input type="search" class="search__input" autocomplete="off" (input)="onSearch($event)" />
-    </label>
-    <p class="search__status" aria-live="polite">
-      @if (query()) {
-        {{ matchCount() }} {{ matchCount() === 1 ? 'dealer' : 'dealers' }} found
-      }
-    </p>
-  </div>
-
-  <nav class="jump" aria-label="Regions">
-    <ul role="list">
-      @for (region of regions; track region.id) {
+  <ng-template #regionMenu>
+    <ul class="side-menu" role="list">
+      @for (r of regions; track r.id) {
         <li>
-          <a routerLink="." [fragment]="region.id">{{ region.name }}</a>
+          <button
+            type="button"
+            class="side-menu__item"
+            [attr.aria-pressed]="region() === r.id"
+            (click)="selectRegion(r.id)"
+          >
+            {{ r.name }}
+          </button>
         </li>
       }
     </ul>
-  </nav>
+  </ng-template>
 
-  @for (region of filtered(); track region.id) {
-    <section class="region" [attr.aria-labelledby]="region.id">
-      <h2 class="region__title" [id]="region.id">{{ region.name }}</h2>
-      <table class="dealers">
-        <thead>
-          <tr>
-            <th scope="col">Company</th>
-            <th scope="col">Tel</th>
-            <th scope="col">Address</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (dealer of region.dealers; track dealer.name) {
-            <tr>
-              <th scope="row" class="dealers__name">{{ dealer.name }}</th>
-              <td>
-                <a class="dealers__tel" [href]="'tel:' + dealer.tel">
-                  <app-icon name="phone" />
-                  {{ dealer.phone }}
-                </a>
-              </td>
-              <td class="dealers__address">{{ dealer.address }}</td>
-            </tr>
+  <div class="catalog">
+    <nav class="catalog__aside--desktop" aria-label="Regions">
+      <h2 class="side-menu__heading">Province or country</h2>
+      <ng-container [ngTemplateOutlet]="regionMenu" />
+    </nav>
+
+    <div>
+      <div class="catalog__toolbar">
+        <label>
+          <span class="visually-hidden">Search dealers by name, town or province</span>
+          <input
+            type="search"
+            class="catalog__search"
+            placeholder="Search dealers by name, town or province"
+            autocomplete="off"
+            [value]="query()"
+            (input)="onSearch($event)"
+          />
+        </label>
+        <nav class="toolbar-menu" aria-label="Regions (compact)">
+          <ng-container [ngTemplateOutlet]="regionMenu" />
+        </nav>
+        <p class="catalog__status" aria-live="polite">
+          @if (query()) {
+            @if (hitCount()) {
+              {{ hitCount() }} {{ hitCount() === 1 ? 'dealer matches' : 'dealers match' }} "{{
+                query()
+              }}", shown at the top
+            } @else {
+              No dealers match "{{ query() }}"
+            }
+          } @else if (region()) {
+            {{ hitCount() }} {{ regionName() }} {{ hitCount() === 1 ? 'dealer' : 'dealers' }} shown
+            at the top
           }
-        </tbody>
-      </table>
-    </section>
-  } @empty {
-    <p class="empty">No dealers match "{{ query() }}".</p>
-  }
+        </p>
+      </div>
 
-  <a class="to-top" routerLink="." fragment="top">
-    <app-icon name="arrow-up" />
-    Back to top
-  </a>
+      <div class="grid-box" #gridBox tabindex="0" role="region" aria-label="Dealer list">
+        <table class="dealers">
+          <thead>
+            <tr>
+              <th scope="col">Province / country</th>
+              <th scope="col">Company</th>
+              <th scope="col">Tel</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of rows(); track item.row.key) {
+              <tr [class.hit]="item.hit">
+                <td class="dealers__region">{{ item.row.region }}</td>
+                <th scope="row" class="dealers__name">{{ item.row.name }}</th>
+                <td class="dealers__tel">
+                  <a [href]="'tel:' + item.row.tel">{{ item.row.phone }}</a>
+                </td>
+                <td class="dealers__address">{{ item.row.address }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

@@ -43,9 +43,6 @@ import { Picture } from '../picture/picture';
       block-size: 100%;
       animation: scroll 36s linear infinite;
     }
-    .carousel:hover .carousel__track {
-      animation-play-state: paused;
-    }
     .carousel__list {
       display: flex;
       align-items: center;

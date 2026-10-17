@@ -39,6 +39,14 @@
   --content-max: 76rem;
   --radius: 0.5rem;
   --carousel-height: 6.5rem;
+  /* Fixed header height, used to offset sticky toolbars and anchor targets. */
+  --header-height: 5rem;
+}
+
+@media (min-width: 64em) {
+  :root {
+    --header-height: 7.5rem;
+  }
 }
 
 *,
@@ -115,7 +123,7 @@ svg {
 }
 
 [id] {
-  scroll-margin-block-start: 6rem;
+  scroll-margin-block-start: calc(var(--header-height) + var(--space-3));
 }
 
 /* Layout helpers */
@@ -192,4 +200,153 @@ svg {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Catalogue layout (products, dealers): sticky side menu + sticky search toolbar.
+   Below 64em the side menu becomes a horizontally scrolling chip row inside the toolbar. */
+.catalog {
+  display: grid;
+  /* minmax(0, …) stops the scrolling chip row from widening the page. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.catalog__toolbar {
+  position: sticky;
+  inset-block-start: var(--header-height);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: var(--space-3) var(--gutter);
+  border-block-end: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: blur(6px);
+}
+
+.catalog__search {
+  inline-size: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #8a8a8a;
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.catalog__status {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.side-menu {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0 0 var(--space-1);
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.side-menu__item {
+  display: block;
+  flex: none;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: start;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  &[aria-pressed='true'] {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+.side-menu__heading {
+  display: none;
+}
+
+/* Desktop: the menu moves into a sticky left column. */
+.catalog__aside--desktop {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .catalog {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .catalog__aside--desktop {
+    display: block;
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-3));
+    max-block-size: calc(100dvh - var(--header-height) - var(--space-5));
+    overflow-y: auto;
+  }
+
+  .catalog__toolbar .side-menu {
+    display: none;
+  }
+
+  .catalog__toolbar {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .side-menu__heading {
+    display: block;
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .catalog__aside--desktop .side-menu {
+    flex-direction: column;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .catalog__aside--desktop .side-menu__item {
+    inline-size: 100%;
+    padding: 0.4rem 0.75rem;
+    border: 0;
+    border-inline-start: 3px solid transparent;
+    border-radius: 0;
+    white-space: normal;
+
+    &:hover {
+      border-inline-start-color: var(--color-accent);
+      background: var(--color-surface);
+    }
+
+    &[aria-pressed='true'] {
+      border-inline-start-color: var(--color-accent);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+  }
 }
