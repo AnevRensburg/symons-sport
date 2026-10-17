@@ -12,7 +12,6 @@ import { RouterLink } from '@angular/router';
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/products">Products</a></li>
-        <li><a routerLink="/dealers">Find a dealer</a></li>
         <li><a routerLink="/contact">Contact us</a></li>
       </ul>
     </div>

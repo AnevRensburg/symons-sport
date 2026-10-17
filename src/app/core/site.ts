@@ -10,14 +10,15 @@ export const SITE = {
     { label: 'Sonja van Rensburg', display: '082 658 6866', tel: '+27826586866' },
   ],
   address: {
-    lines: ['Unit 4 Durbanville Park', '5 Lilie Street, Durbanville', 'Cape Town, South Africa'],
-    street: 'Unit 4 Durbanville Park, 5 Lilie Street',
-    locality: 'Durbanville',
+    lines: ['Unit 3, 30 Bella Rosa St', 'Bellville, 7530', 'Cape Town, South Africa'],
+    street: 'Unit 3, 30 Bella Rosa St',
+    locality: 'Bellville',
+    postalCode: '7530',
     region: 'Western Cape',
     country: 'ZA',
   },
   mapUrl:
-    'https://www.google.com/maps/search/?api=1&query=5+Lilie+Street%2C+Durbanville%2C+South+Africa',
+    'https://www.google.com/maps/search/?api=1&query=30+Bella+Rosa+St%2C+Bellville%2C+7530%2C+South+Africa',
 } as const;
 
 /** schema.org LocalBusiness description, injected as JSON-LD on the home and contact pages. */
@@ -30,7 +31,7 @@ export const LOCAL_BUSINESS_JSON_LD = {
   description:
     'Importer and distributor of MX, enduro and off-road motorcycle parts, supplying dealers throughout Southern Africa.',
   url: `${SITE.url}/`,
-  logo: `${SITE.url}/images/logos/ssi-logo-441.webp`,
+  logo: `${SITE.url}/images/logos/ssi-logo-500.webp`,
   image: `${SITE.url}${SITE.ogImage}`,
   email: SITE.email,
   telephone: SITE.phones[0].tel,
@@ -39,6 +40,7 @@ export const LOCAL_BUSINESS_JSON_LD = {
     '@type': 'PostalAddress',
     streetAddress: SITE.address.street,
     addressLocality: SITE.address.locality,
+    postalCode: SITE.address.postalCode,
     addressRegion: SITE.address.region,
     addressCountry: SITE.address.country,
   },

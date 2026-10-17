@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * One-time image pipeline: converts the originals from the old static site
- * (../symons-sport/images and ../symons-sport/logos) into AVIF + WebP at a few
+ * (../symons-sport/images and ../symons-sport/logos) and newer originals supplied by the
+ * client (image-sources/, gitignored, paths prefixed "new/") into AVIF + WebP at a few
  * widths, writes them to public/images, and generates a typed manifest that the
  * <app-picture> component reads (intrinsic size + available widths).
  *
@@ -9,7 +10,7 @@
  *
  * sharp is a devDependency only; the committed output is what ships.
  */
-import { copyFile, mkdir, rm, stat, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -17,7 +18,26 @@ import sharp from 'sharp';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceArg = process.argv.indexOf('--source');
 const source = path.resolve(root, sourceArg > -1 ? process.argv[sourceArg + 1] : '../symons-sport');
+const newSources = path.join(root, 'image-sources');
 const outDir = path.join(root, 'public/images');
+
+/** "new/<file>" lives in image-sources/; everything else in the old site. */
+const resolveSource = (rel) =>
+  rel.startsWith('new/') ? path.join(newSources, rel.slice(4)) : path.join(source, rel);
+
+/** Clean-up steps for supplied photos, applied before resizing. */
+// Flatten first (some photos have a transparent background), then trim the empty margins.
+const trimWhite = async (img) =>
+  sharp(await img.flatten({ background: '#ffffff' }).toBuffer()).trim({
+    background: '#ffffff',
+    threshold: 20,
+  });
+const PREP = {
+  'runleader-dc-hour-meter': trimWhite,
+  // Crop off the model/code text printed under the product (client request, July 2026).
+  'runleader-vibration-hour-meter': async (img) =>
+    trimWhite(sharp(await img.extract({ left: 0, top: 0, width: 1725, height: 590 }).toBuffer())),
+};
 const manifestFile = path.join(root, 'src/app/data/image-manifest.ts');
 
 /** [source path relative to old site, output name (kebab-case, no extension)] */
@@ -48,9 +68,12 @@ const products = [
   ['images/products/haan-spokes.png', 'haan-spokes'],
   ['images/products/hour-meters.jpg', 'runleader-hour-meters'],
   ['images/products/tacho-meter.png', 'runleader-tacho-meter'],
+  ['new/runleader-dc-hour-meter.png', 'runleader-dc-hour-meter'],
+  ['new/runleader-vibration-hour-meter.png', 'runleader-vibration-hour-meter'],
   ['images/products/sprockets.png', 'supersprox-stealth-sprockets'],
   ['images/products/aluminium-sprockets.png', 'supersprox-aluminium-sprockets'],
   ['images/products/front-sprockets.png', 'supersprox-front-sprockets'],
+  ['new/supersprox-steel-sprockets.png', 'supersprox-steel-sprockets'],
   ['images/products/chain-guides.png', 'tmd-chain-guides'],
   ['images/products/TMD.png', 'tmd-chain-guide'],
   ['images/products/pivot-mx2.jpg', 'flex-pivot-mx-levers'],
@@ -58,11 +81,12 @@ const products = [
   ['images/products/t-packs.jpeg', 'bolts-track-pack'],
   ['images/products/p-bolts.jpeg', 'bolts-plastics-fastener-kit'],
   ['images/products/s-bolts.jpeg', 'bolts-sprocket-disc'],
-  ['images/products/brake-disks.png', 'brake-discs'],
+  ['new/brake-discs.png', 'brake-discs'],
 ];
 
 const logos = [
-  ['logos/SSI-logo.png', 'ssi-logo'],
+  // New logo ("Symons Sport Int.") cut from the client's "Logos SSI & Renz.pdf".
+  ['new/ssi-logo.png', 'ssi-logo'],
   ['logos/EE-logo.png', 'enduro-engineering'],
   ['logos/Excel-logo.jpg', 'excel'],
   ['logos/Kite-logo.png', 'kite'],
@@ -128,8 +152,10 @@ await rm(outDir, { recursive: true, force: true });
 for (const job of jobs) {
   await mkdir(path.join(outDir, job.dir), { recursive: true });
   for (const [rel, name] of job.items) {
-    const input = path.join(source, rel);
-    before += (await stat(input)).size;
+    const file = resolveSource(rel);
+    before += (await stat(file)).size;
+    let input = await readFile(file);
+    if (PREP[name]) input = await (await PREP[name](sharp(input))).png().toBuffer();
     const meta = await sharp(input).metadata();
     const widths = [...new Set(job.widths.map((w) => Math.min(w, meta.width)))].sort(
       (a, b) => a - b,
@@ -152,9 +178,8 @@ for (const job of jobs) {
 }
 
 // Open Graph / social preview: 1200x630 JPEG (AVIF/WebP are not reliably supported by crawlers).
-const ogLogo = await sharp(path.join(source, 'logos/SSI-logo.png'))
-  .resize({ width: 300 })
-  .toBuffer();
+const logoFile = resolveSource('new/ssi-logo.png');
+const ogLogo = await sharp(logoFile).resize({ width: 300 }).toBuffer();
 const ogLogoMeta = await sharp(ogLogo).metadata();
 const plate = Buffer.from(
   `<svg width="${ogLogoMeta.width + 48}" height="${ogLogoMeta.height + 48}"><rect width="100%" height="100%" rx="12" fill="#fff" fill-opacity="0.9"/></svg>`,
@@ -170,9 +195,13 @@ await writeTracked(
   path.join(outDir, 'og-image.jpg'),
 );
 
-// Favicons: the SSI logo centred on a white square.
+// Favicons: the "SSI" oval (top part of the logo, without the small text) on a white square.
+const logoMeta = await sharp(logoFile).metadata();
+const logoMark = await sharp(logoFile)
+  .extract({ left: 0, top: 0, width: logoMeta.width, height: Math.round(logoMeta.height * 0.68) })
+  .toBuffer();
 const square = (size) =>
-  sharp(path.join(source, 'logos/SSI-logo.png'))
+  sharp(logoMark)
     .resize({ width: size, height: size, fit: 'contain', background: '#ffffff' })
     .flatten({ background: '#ffffff' })
     .png({ compressionLevel: 9, palette: true });

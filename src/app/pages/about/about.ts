@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="actions">
           <a class="button" routerLink="/products">Our products</a>
-          <a class="button button--ghost" routerLink="/dealers">Find a dealer</a>
+          <a class="button button--ghost" routerLink="/contact">Contact us</a>
         </div>
       </div>
     </article>

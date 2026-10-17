@@ -7,7 +7,7 @@ const seo = (value: PageSeo) => ({ seo: value });
 const notFound = seo({
   title: 'Page Not Found | Symons Sport International',
   description:
-    'The page you are looking for does not exist. Browse our motorcycle parts, find a dealer or contact us.',
+    'The page you are looking for does not exist. Browse our motorcycle parts or contact us.',
   path: '/404.html',
   noindex: true,
 });
@@ -20,7 +20,7 @@ export const routes: Routes = [
     data: seo({
       title: 'Symons Sport International | Motorcycle Parts Distributor, Cape Town',
       description:
-        'Importer and distributor of MX, enduro and off-road motorcycle parts in Durbanville, Cape Town: Enduro Engineering, Excel, Kite, Risk Racing, Supersprox and more.',
+        'Importer and distributor of MX, enduro and off-road motorcycle parts in Bellville, Cape Town: Enduro Engineering, Excel, Kite, Risk Racing, Supersprox and more.',
       path: '/',
       jsonLd: LOCAL_BUSINESS_JSON_LD,
     }),
@@ -29,9 +29,9 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./pages/about/about').then((m) => m.About),
     data: seo({
-      title: 'About Us | Symons Sport International, Durbanville',
+      title: 'About Us | Symons Sport International, Bellville',
       description:
-        'Family-run importer of quality motorcycle parts since 2003, based in Durbanville, Cape Town, supplying dealers across South Africa and neighbouring countries.',
+        'Family-run importer of quality motorcycle parts since 2003, based in Bellville, Cape Town, supplying dealers across South Africa and neighbouring countries.',
       path: '/about/',
     }),
   },
@@ -43,17 +43,6 @@ export const routes: Routes = [
       description:
         'Enduro Engineering skid plates and guards, Excel rims, Kite wheels, Supersprox sprockets, Risk Racing tools, TM Designworks chain guides, bolts and brake discs.',
       path: '/products/',
-    }),
-  },
-  {
-    path: 'dealers',
-    loadComponent: () => import('./pages/dealers/dealers').then((m) => m.Dealers),
-    data: seo({
-      title: 'Find a Motorcycle Parts Dealer | Symons Sport International',
-      // Kept as text so the dealer data stays out of the main bundle.
-      description:
-        'More than 140 motorcycle dealers stock our parts in Gauteng, KZN, the Western Cape and every other province, plus Namibia, Mauritius and Zimbabwe.',
-      path: '/dealers/',
     }),
   },
   {
@@ -70,9 +59,9 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
     data: seo({
-      title: 'Contact Us | Symons Sport International, Durbanville',
+      title: 'Contact Us | Symons Sport International, Bellville',
       description:
-        'Call 021 975 9629 or email symons.sport@gmail.com. Visit us at Unit 4 Durbanville Park, 5 Lilie Street, Durbanville, Cape Town. Ask about becoming a dealer.',
+        'Call 021 975 9629 or email symons.sport@gmail.com. Visit us at Unit 3, 30 Bella Rosa St, Bellville, Cape Town. Ask about becoming a dealer.',
       path: '/contact/',
       jsonLd: LOCAL_BUSINESS_JSON_LD,
     }),

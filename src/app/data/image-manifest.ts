@@ -144,6 +144,16 @@ export const IMAGE_MANIFEST = {
     height: 240,
     widths: [365],
   },
+  'products/runleader-dc-hour-meter': {
+    width: 576,
+    height: 345,
+    widths: [400, 576],
+  },
+  'products/runleader-vibration-hour-meter': {
+    width: 460,
+    height: 315,
+    widths: [400, 460],
+  },
   'products/supersprox-stealth-sprockets': {
     width: 500,
     height: 497,
@@ -157,6 +167,11 @@ export const IMAGE_MANIFEST = {
   'products/supersprox-front-sprockets': {
     width: 800,
     height: 751,
+    widths: [400, 800],
+  },
+  'products/supersprox-steel-sprockets': {
+    width: 800,
+    height: 747,
     widths: [400, 800],
   },
   'products/tmd-chain-guides': {
@@ -195,9 +210,9 @@ export const IMAGE_MANIFEST = {
     widths: [400, 800],
   },
   'products/brake-discs': {
-    width: 225,
-    height: 225,
-    widths: [225],
+    width: 800,
+    height: 800,
+    widths: [400, 800],
   },
   'logos/enduro-engineering': {
     width: 320,
@@ -245,9 +260,9 @@ export const IMAGE_MANIFEST = {
     widths: [160, 318],
   },
   'logos/ssi-logo': {
-    width: 441,
-    height: 204,
-    widths: [250, 441],
+    width: 500,
+    height: 185,
+    widths: [250, 500],
   },
   'elmer/elmer-racing': {
     width: 590,

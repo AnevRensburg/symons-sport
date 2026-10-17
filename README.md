@@ -1,15 +1,15 @@
 # Symons Sport International
 
 Website for [Symons Sport International](https://www.symons-sport.co.za), importer and distributor of
-MX, enduro and off-road motorcycle parts in Durbanville, Cape Town.
+MX, enduro and off-road motorcycle parts in Bellville, Cape Town.
 
 Built with Angular 22 (standalone components, signals, zoneless change detection, strict TypeScript, SCSS).
 Every route is **prerendered to static HTML** at build time. There is no backend, and the output is
 hosted on GitHub Pages.
 
 This is the company's live business website, not a portfolio project. It shows static information
-only (products, dealers, contact details), so it makes no API or network calls. Interactive parts
-(the mobile menu, product and dealer search, the tribute dialog and the video player) run in the
+only (products, contact details), so it makes no API or network calls. Interactive parts
+(the mobile menu, product search, the tribute dialog and the video player) run in the
 browser.
 
 Open to-dos, decisions and manual launch steps are tracked in [CLAUDE.md](CLAUDE.md).
@@ -31,7 +31,7 @@ npm install
 | `npm run build`      | Production build + prerender of all routes, then `scripts/postbuild.mjs`        |
 | `npm run prerender`  | Alias for `npm run build` (prerendering is part of every production build)      |
 | `npm run serve:dist` | Serve the built site at http://localhost:8080 (no gzip; GitHub Pages does gzip) |
-| `npm run images`     | Regenerate the optimised images from the old site (see below)                   |
+| `npm run images`     | Regenerate the optimised images (see below)                                     |
 | `npm run lint`       | ESLint (angular-eslint, including template accessibility rules)                 |
 | `npm run format`     | Prettier                                                                        |
 
@@ -47,28 +47,27 @@ The build output is `dist/symons-sport-angular/browser/`. `postbuild.mjs` then:
 ```
 src/app/
   core/      header (accessible mobile menu), footer, SeoService, business details (site.ts)
-  pages/     home, about, products, dealers, elmer, contact, not-found (each lazy-loaded)
+  pages/     home, about, products, elmer, contact, not-found (each lazy-loaded)
   shared/    picture (AVIF/WebP + NgOptimizedImage), product card, brand carousel,
              tribute dialog (native <dialog>), icon (inline SVG)
-  data/      products.ts, dealers.ts, tributes.ts, brands.ts, image-manifest.ts (generated)
+  data/      products.ts, tributes.ts, brands.ts, image-manifest.ts (generated)
 public/      static files copied as-is: images/, fonts/, docs/, CNAME, robots.txt, sitemap.xml
 scripts/     optimize-images.mjs, postbuild.mjs
 ```
 
 ### Editing content
 
-- **Products:** `src/app/data/products.ts`. To add an image, add it to the list in
-  `scripts/optimize-images.mjs` and run `npm run images`.
-- **Dealers:** `src/app/data/dealers.ts`. The `tel` field is the number in international format for
-  `tel:` links.
+- **Products:** `src/app/data/products.ts`. To add an image, put the original in `image-sources/`,
+  add it to the list in `scripts/optimize-images.mjs` as `new/<file>` and run `npm run images`.
 - **Contact details** (also used in the footer and JSON-LD): `src/app/core/site.ts`.
 - **Page titles and descriptions:** the `seo` data on each route in `src/app/app.routes.ts`. If you
   add a page, add it to `public/sitemap.xml` too.
 
 ## Images
 
-`npm run images` is a one-time script. It reads the originals from the old static site (by default
-`../symons-sport`; to use another folder, run `npm run images -- --source <path>`) and writes
+`npm run images` reads the originals from the old static site (by default `../symons-sport`; to
+use another folder, run `npm run images -- --source <path>`) and newer originals supplied by the
+client from `image-sources/` (gitignored, so keep a backup of it). It writes
 AVIF + WebP at 2–3 widths into `public/images/`, along with the Open Graph image, the favicons and
 `src/app/data/image-manifest.ts`. Only the optimised output is committed. `sharp` is a dev
 dependency only.

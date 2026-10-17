@@ -43,3 +43,6 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
+
+# Original images for scripts/optimize-images.mjs (only the optimised output is committed)
+/image-sources/

@@ -166,6 +166,16 @@ export const PRODUCT_CATEGORIES: readonly ProductCategory[] = [
         image: 'products/runleader-tacho-meter',
         alt: 'Runleader tachometer and hour meter',
       },
+      {
+        name: '4.5 - 60V DC Hour Meter',
+        image: 'products/runleader-dc-hour-meter',
+        alt: 'Runleader 4.5 to 60 volt DC hour meter',
+      },
+      {
+        name: 'Vibration Hour Meters',
+        image: 'products/runleader-vibration-hour-meter',
+        alt: 'Runleader vibration-activated hour meter',
+      },
     ],
   },
   {
@@ -186,6 +196,11 @@ export const PRODUCT_CATEGORIES: readonly ProductCategory[] = [
         name: 'Front Sprockets',
         image: 'products/supersprox-front-sprockets',
         alt: 'Supersprox steel front sprockets',
+      },
+      {
+        name: 'Steel Sprockets',
+        image: 'products/supersprox-steel-sprockets',
+        alt: 'Supersprox black steel rear sprocket',
       },
     ],
   },
@@ -245,7 +260,7 @@ export const PRODUCT_CATEGORIES: readonly ProductCategory[] = [
       {
         name: 'Brake Discs',
         image: 'products/brake-discs',
-        alt: 'Off-road motorcycle brake discs',
+        alt: 'Wave-cut off-road motorcycle brake disc',
       },
     ],
   },

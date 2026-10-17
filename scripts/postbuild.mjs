@@ -7,7 +7,7 @@
  *    so browsers without AVIF support skip it and use the WebP <img> instead
  *  - removes index.csr.html (every route is prerendered)
  */
-import { readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -23,12 +23,15 @@ await rm(path.join(dist, '404'), { recursive: true });
 const redirects = {
   'about.html': '/about/',
   'products.html': '/products/',
-  'dealers.html': '/dealers/',
+  // The dealer list was taken down (client request, July 2026): old links go to Contact.
+  'dealers.html': '/contact/',
+  'dealers/index.html': '/contact/',
   'elmer.html': '/elmer/',
   'contact.html': '/contact/',
 };
 for (const [file, target] of Object.entries(redirects)) {
   const url = `${SITE}${target}`;
+  await mkdir(path.dirname(path.join(dist, file)), { recursive: true });
   await writeFile(
     path.join(dist, file),
     `<!doctype html>
