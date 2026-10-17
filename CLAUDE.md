@@ -89,6 +89,9 @@ Each was checked online on 2026-10-17.
   page intros, product brand menu and search, footer contact details on every page.
 - The brand carousel sits above the footer on every page instead of being fixed to the bottom of the
   screen.
+- The brand carousel renders the logo list three times and loads its logos eagerly. Lazy-loading
+  left a blank gap after TM Designworks until the next logos had downloaded, and with only two
+  copies screens wider than about 1580px would show a gap at the end of each loop.
 - GitHub Pages serves routes as folders, so canonical URLs and the sitemap use a trailing slash
   (`/about/`). The address bar shows `/about` once Angular has loaded.
 - Old URLs (`about.html`, `products.html`, …) redirect to the new routes via pages written by

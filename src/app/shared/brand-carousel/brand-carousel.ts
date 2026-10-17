@@ -3,7 +3,9 @@ import { BRANDS } from '../../data/brands';
 import { Picture } from '../picture/picture';
 
 /**
- * Infinite logo strip in pure CSS: the list is rendered twice and the track slides by 50%.
+ * Infinite logo strip in pure CSS: the list is rendered three times and the track slides by one
+ * list width (a third), so the strip never runs out, even on screens wider than one list.
+ * Logos load eagerly: lazy-loading waits until a logo slides into view, which left a blank gap.
  * With prefers-reduced-motion the logos simply wrap and stay still.
  */
 @Component({
@@ -15,13 +17,14 @@ import { Picture } from '../picture/picture';
       <h2 id="brands-heading" class="visually-hidden">Brands we distribute</h2>
       <div class="carousel__track">
         @for (copy of copies; track copy) {
-          <ul class="carousel__list" role="list" [attr.aria-hidden]="copy === 1 ? 'true' : null">
+          <ul class="carousel__list" role="list" [attr.aria-hidden]="copy > 0 ? 'true' : null">
             @for (brand of brands; track brand.name) {
               <li class="carousel__item">
                 <app-picture
                   [src]="brand.logo"
                   [alt]="copy === 0 ? brand.name + ' logo' : ''"
                   sizes="160px"
+                  [eager]="true"
                 />
               </li>
             }
@@ -60,7 +63,7 @@ import { Picture } from '../picture/picture';
     }
     @keyframes scroll {
       to {
-        transform: translateX(-50%);
+        transform: translateX(calc(-100% / 3));
       }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -87,5 +90,5 @@ import { Picture } from '../picture/picture';
 })
 export class BrandCarousel {
   protected readonly brands = BRANDS;
-  protected readonly copies = [0, 1];
+  protected readonly copies = [0, 1, 2];
 }
