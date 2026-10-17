@@ -223,13 +223,19 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         name: 'The Roost',
         phone: '011 362 2255',
         tel: '+27113622255',
-        address: '143, 2ND Street Springs 1559',
+        address: 'Atlas Rd, Boksburg 1459',
       },
       {
         name: 'True Wheels',
         phone: '084 290 6350',
         tel: '+27842906350',
         address: 'Unit 2 Inospace Sebenza Works, 131 Terrace Road, Edenvale, 1609',
+      },
+      {
+        name: 'UB Leisure',
+        phone: '012 331 1224',
+        tel: '+27123311224',
+        address: '34 Banghoek Crescent, Pretoria',
       },
       {
         name: 'VLA Racing Vic Legacy',
@@ -273,7 +279,6 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         tel: '+27729863830',
         address: '4 Glen Avon Place, Waterfall, KZN, 3652',
       },
-      { name: 'Locomoto', phone: '083 327 2499', tel: '+27833272499', address: 'Westville, 3630' },
       {
         name: 'Majuba Pitstop',
         phone: '034 312 1175',
@@ -449,12 +454,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         tel: '+27215117966',
         address: '44 Marine Drive, Cape Town',
       },
-      {
-        name: 'KTM Paarl',
-        phone: '021 879 4630',
-        tel: '+27218794630',
-        address: 'Zandwyk Business Park, R101 Old Paarl Road, Paarl, 7646',
-      },
+      { name: 'Locomoto', phone: '083 327 2499', tel: '+27833272499', address: 'Hermanus' },
       {
         name: 'Muddy Offroads',
         phone: '071 605 1606',
@@ -466,6 +466,12 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         phone: '073 231 4391',
         tel: '+27732314391',
         address: '18 Aster Street, Helderview, Western Cape',
+      },
+      {
+        name: 'RAD Paarl',
+        phone: '021 879 4630',
+        tel: '+27218794630',
+        address: 'Zandwyk Business Park, R101 Old Paarl Road, Paarl, 7646',
       },
       {
         name: 'Swartland Yamaha',
@@ -618,7 +624,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         address: '8 Laing Str., Secunda, 2302',
       },
       {
-        name: 'Vans Big Boy Scooters',
+        name: 'Vans Motorcycles',
         phone: '013 282 0766',
         tel: '+27132820766',
         address: '190 Cowen Ntuli Street, Middelburg 1055',
