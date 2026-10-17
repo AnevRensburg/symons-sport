@@ -12,37 +12,37 @@ import { YoutubeFacade } from './youtube-facade';
       <h1>Elmer Symons</h1>
 
       <div class="intro">
-        <p class="prose">
-          Elmer Symons was a motorcycle enduro racer. He was born in KwaZulu-Natal, South Africa. He
-          began enduro racing in 1996 and moved to the United States in 2003. He had placed well in
-          numerous regional competitions and had participated in the 2005 and 2006 Dakar Rally as a
-          support mechanic. Together with his brother Philip he started Symons Sport International
-          in 2003.
-        </p>
-        <div class="photos">
-          <app-picture
-            class="photos__action"
-            src="elmer/elmer-racing"
-            alt="Elmer Symons racing his off-road motorcycle"
-            sizes="(min-width: 64em) 460px, 60vw"
-          />
-          <app-picture
-            class="photos__portrait"
-            src="elmer/elmer-portrait"
-            alt="Portrait of Elmer Symons"
-            sizes="(min-width: 64em) 180px, 35vw"
-          />
+        <div class="intro__about">
+          <p class="prose">
+            Elmer Symons was a motorcycle enduro racer. He was born in KwaZulu-Natal, South Africa.
+            He began enduro racing in 1996 and moved to the United States in 2003. He had placed
+            well in numerous regional competitions and had participated in the 2005 and 2006 Dakar
+            Rally as a support mechanic. Together with his brother Philip he started Symons Sport
+            International in 2003.
+          </p>
+          <div class="photos">
+            <app-picture
+              src="elmer/elmer-racing"
+              alt="Elmer Symons racing his off-road motorcycle"
+              sizes="(min-width: 64em) 340px, 60vw"
+            />
+            <app-picture
+              src="elmer/elmer-portrait"
+              alt="Portrait of Elmer Symons"
+              sizes="(min-width: 64em) 170px, 35vw"
+            />
+          </div>
         </div>
-      </div>
 
-      <section class="section" aria-labelledby="video-title">
-        <h2 id="video-title">View Elmer in action</h2>
-        @defer (on viewport; hydrate on interaction) {
-          <app-youtube-facade class="video" videoId="06eL79XSmBk" title="Elmer Symons riding" />
-        } @placeholder {
-          <div class="video video--placeholder"></div>
-        }
-      </section>
+        <section class="intro__video" aria-labelledby="video-title">
+          <h2 id="video-title">View Elmer in action</h2>
+          @defer (on viewport; hydrate on interaction) {
+            <app-youtube-facade class="video" videoId="06eL79XSmBk" title="Elmer Symons riding" />
+          } @placeholder {
+            <div class="video video--placeholder"></div>
+          }
+        </section>
+      </div>
 
       <section class="section" aria-labelledby="tributes-title">
         <h2 id="tributes-title">Tributes to Elmer</h2>
@@ -60,27 +60,34 @@ import { YoutubeFacade } from './youtube-facade';
     </article>
   `,
   styles: `
+    /* Mobile: text, photos and video stacked. Desktop: text + photos left, video right. */
     .intro {
       display: grid;
-      gap: var(--space-4);
+      gap: var(--space-5);
       align-items: start;
+    }
+    .intro__about p {
+      margin-block-end: var(--space-4);
     }
     .photos {
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: var(--space-3);
       align-items: start;
+      max-inline-size: 32rem;
     }
     .photos app-picture {
       overflow: hidden;
       border-radius: var(--radius);
     }
+    .intro__video h2 {
+      margin-block-end: var(--space-3);
+    }
     .section {
-      margin-block-start: var(--space-6);
+      margin-block-start: var(--space-5);
     }
     .video {
       display: block;
-      max-inline-size: 48rem;
     }
     .video--placeholder {
       aspect-ratio: 16 / 9;
@@ -99,7 +106,8 @@ import { YoutubeFacade } from './youtube-facade';
     }
     @media (min-width: 64em) {
       .intro {
-        grid-template-columns: 1fr 40rem;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        gap: var(--space-5);
       }
     }
   `,

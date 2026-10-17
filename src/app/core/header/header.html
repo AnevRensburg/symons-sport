@@ -5,7 +5,7 @@
       <app-picture
         src="logos/ssi-logo"
         alt="Symons Sport International logo"
-        sizes="(min-width: 64em) 220px, 150px"
+        sizes="(min-width: 64em) 170px, 120px"
         [eager]="true"
       />
     </a>
@@ -18,7 +18,7 @@
       [attr.aria-expanded]="menuOpen()"
       (click)="toggle()"
     >
-      <app-icon [name]="menuOpen() ? 'close' : 'menu'" />
+      <span class="burger" aria-hidden="true"><span></span><span></span></span>
       <span class="visually-hidden">{{ menuOpen() ? 'Close menu' : 'Open menu' }}</span>
     </button>
 

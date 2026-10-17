@@ -10,7 +10,6 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
-import { Icon } from '../../shared/icon/icon';
 import { Picture } from '../../shared/picture/picture';
 
 export const NAV_LINKS = [
@@ -24,7 +23,7 @@ export const NAV_LINKS = [
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, Icon, Picture],
+  imports: [RouterLink, RouterLinkActive, Picture],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

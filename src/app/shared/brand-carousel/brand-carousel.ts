@@ -34,7 +34,6 @@ import { Picture } from '../picture/picture';
     .carousel {
       overflow: hidden;
       block-size: var(--carousel-height);
-      border-block-start: 1px solid var(--color-border);
       background: var(--color-bg);
     }
     .carousel__track {

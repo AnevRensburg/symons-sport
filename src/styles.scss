@@ -40,12 +40,12 @@
   --radius: 0.5rem;
   --carousel-height: 6.5rem;
   /* Fixed header height, used to offset sticky toolbars and anchor targets. */
-  --header-height: 5rem;
+  --header-height: 4rem;
 }
 
 @media (min-width: 64em) {
   :root {
-    --header-height: 7.5rem;
+    --header-height: 4.75rem;
   }
 }
 
@@ -206,6 +206,7 @@ svg {
    Below 64em the side menu becomes a horizontally scrolling chip row inside the toolbar. */
 .catalog {
   display: grid;
+  margin-block-start: var(--space-5);
   /* minmax(0, …) stops the scrolling chip row from widening the page. */
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-4);
