@@ -119,10 +119,21 @@ Each was checked online on 2026-10-17.
 
 ### Manual steps before going live
 
+- [ ] Decide where to publish. The live site is GitHub Pages from `AnevRensburg/symons-sport`
+      (checked 2026-10-17), which owns the custom domain. Either (a) push this project to that same
+      repo (DNS and domain stay as they are), or (b) use a new repo: remove the custom domain from
+      the old repo's Pages settings first, then add it to the new one (a few minutes of downtime).
+- [ ] Get the business owner's sign-off on the whole site (content, new products, dealer list,
+      the Elmer page intro that was added in the rebuild).
+- [ ] Test on a real iPhone (Safari) and an Android phone. Testing so far was in Chromium only.
+- [ ] Confirm the YouTube video (06eL79XSmBk) is still wanted: it is hosted on someone else's
+      channel ("VCMC Wheelie 05 16 04" by Geno TF2) and could be removed by them at any time.
+- [ ] Back up `image-sources/` (gitignored: the client's new photos and the logo cut from the PDF).
 - [ ] Push the repo to GitHub (only after the user confirms).
 - [ ] In GitHub **Settings → Pages**, set **Source** to **GitHub Actions**, set the custom domain to
       `www.symons-sport.co.za` and tick **Enforce HTTPS**.
-- [ ] Keep the DNS `CNAME` record for `www` pointing at `<username>.github.io`.
+- [ ] Keep the DNS `CNAME` record for `www` pointing at `<username>.github.io` (already the case
+      for the old site; the bare domain already redirects to www).
 - [ ] After launch, run Lighthouse on the live site and submit `sitemap.xml` in Google Search
       Console.
 
