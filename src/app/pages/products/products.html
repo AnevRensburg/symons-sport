@@ -1,0 +1,48 @@
+<div class="page container">
+  <h1 id="top">Our Products</h1>
+  <p class="intro prose">
+    Quality MX, enduro and off-road motorcycle parts from leading international brands, available
+    from
+    <a routerLink="/dealers">our dealers</a> across Southern Africa.
+  </p>
+
+  <nav class="jump" aria-label="Product categories">
+    <ul role="list">
+      @for (category of categories; track category.id) {
+        <li>
+          <a routerLink="." [fragment]="category.id">{{ category.title }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  @for (category of categories; track category.id; let i = $index) {
+    <section class="category" [attr.aria-labelledby]="category.id">
+      <h2 class="section-bar" [id]="category.id">{{ category.title }}</h2>
+      @if (i < eagerCount) {
+        <ul class="grid" role="list">
+          @for (product of category.products; track product.image) {
+            <li><app-product-card [product]="product" /></li>
+          }
+        </ul>
+      } @else {
+        <!-- Prerendered in full for SEO and hydrated only when scrolled into view. After client-side
+             navigation it renders on idle, so the jump links above land in the right place. -->
+        @defer (on idle; hydrate on viewport) {
+          <ul class="grid" role="list">
+            @for (product of category.products; track product.image) {
+              <li><app-product-card [product]="product" /></li>
+            }
+          </ul>
+        } @placeholder {
+          <div class="grid-placeholder"></div>
+        }
+      }
+    </section>
+  }
+
+  <a class="to-top" routerLink="." fragment="top">
+    <app-icon name="arrow-up" />
+    Back to top
+  </a>
+</div>

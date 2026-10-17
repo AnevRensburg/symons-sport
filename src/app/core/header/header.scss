@@ -1,0 +1,120 @@
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  inset-block-start: -10rem;
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-text);
+  color: var(--color-bg);
+
+  &:focus {
+    inset-block-start: var(--space-2);
+  }
+}
+
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 20;
+  background: var(--color-bg);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-block-size: 4.5rem;
+}
+
+.header__logo {
+  display: block;
+  inline-size: 180px;
+  padding-block: var(--space-2);
+}
+
+.header__toggle {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: none;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  background: var(--color-bg);
+  border-block-end: 1px solid var(--color-border);
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 0.08);
+
+  &--open {
+    display: block;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--space-2) var(--gutter) var(--space-4);
+  list-style: none;
+}
+
+.nav__link {
+  display: block;
+  padding: var(--space-3) 0;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--color-accent-text);
+  }
+
+  &--active {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 64em) {
+  .header__inner {
+    min-block-size: 6rem;
+  }
+
+  .header__logo {
+    inline-size: 250px;
+  }
+
+  .header__toggle {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+    position: static;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: var(--space-1);
+    padding: 0;
+  }
+
+  .nav__link {
+    padding: var(--space-2) var(--space-3);
+    font-size: 1.2rem;
+  }
+}

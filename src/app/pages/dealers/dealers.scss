@@ -1,0 +1,116 @@
+.intro {
+  color: var(--color-muted);
+}
+
+.tools {
+  margin-block: var(--space-4) var(--space-3);
+}
+
+.search {
+  display: grid;
+  gap: var(--space-1);
+  max-inline-size: 28rem;
+}
+
+.search__label {
+  font-weight: 600;
+}
+
+.search__input {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #8a8a8a;
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.search__status {
+  min-block-size: 1.65em;
+  margin: var(--space-1) 0 0;
+  color: var(--color-muted);
+}
+
+.jump ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.region__title {
+  margin-block: var(--space-5) var(--space-3);
+  padding-block-end: var(--space-2);
+  border-block-end: 3px solid var(--color-accent);
+}
+
+.dealers {
+  inline-size: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: var(--space-2) var(--space-3);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  thead th {
+    border-block-end: 2px solid var(--color-text);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--color-surface);
+  }
+}
+
+.dealers__name {
+  font-weight: 600;
+}
+
+.dealers__tel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+  text-decoration: none;
+
+  app-icon {
+    color: var(--color-accent-text);
+    font-size: 0.85em;
+  }
+}
+
+/* Small screens: each dealer becomes a stacked card. */
+@media (max-width: 47.99em) {
+  .dealers thead {
+    position: absolute;
+    clip-path: inset(50%);
+  }
+
+  .dealers tr {
+    display: grid;
+    padding: var(--space-3) 0;
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  .dealers tbody tr:nth-child(even) {
+    background: none;
+  }
+
+  .dealers th,
+  .dealers td {
+    padding: 0.1rem 0;
+  }
+
+  .dealers__address {
+    color: var(--color-muted);
+  }
+}
+
+.empty {
+  margin-block: var(--space-5);
+}

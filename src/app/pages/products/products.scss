@@ -1,0 +1,41 @@
+.intro {
+  color: var(--color-muted);
+}
+
+.jump ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jump a {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid-placeholder {
+  min-block-size: 22rem;
+}
