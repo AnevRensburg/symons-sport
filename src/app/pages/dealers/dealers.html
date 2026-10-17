@@ -1,0 +1,90 @@
+<div class="page container">
+  <h1>Our Dealers</h1>
+  <p class="intro prose">
+    Our products are available from {{ total }} reputable dealerships throughout South Africa,
+    Namibia, Mauritius and Zimbabwe. Want to stock our brands?
+    <a routerLink="/contact">Contact us</a> to become a dealer.
+  </p>
+
+  <ng-template #regionMenu>
+    <ul class="side-menu" role="list">
+      @for (r of regions; track r.id) {
+        <li>
+          <button
+            type="button"
+            class="side-menu__item"
+            [attr.aria-pressed]="region() === r.id"
+            (click)="selectRegion(r.id)"
+          >
+            {{ r.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </ng-template>
+
+  <div class="catalog">
+    <nav class="catalog__aside--desktop" aria-label="Regions">
+      <h2 class="side-menu__heading">Province or country</h2>
+      <ng-container [ngTemplateOutlet]="regionMenu" />
+    </nav>
+
+    <div>
+      <div class="catalog__toolbar">
+        <label>
+          <span class="visually-hidden">Search dealers by name, town or province</span>
+          <input
+            type="search"
+            class="catalog__search"
+            placeholder="Search dealers by name, town or province"
+            autocomplete="off"
+            [value]="query()"
+            (input)="onSearch($event)"
+          />
+        </label>
+        <nav class="toolbar-menu" aria-label="Regions (compact)">
+          <ng-container [ngTemplateOutlet]="regionMenu" />
+        </nav>
+        <p class="catalog__status" aria-live="polite">
+          @if (query()) {
+            @if (hitCount()) {
+              {{ hitCount() }} {{ hitCount() === 1 ? 'dealer matches' : 'dealers match' }} "{{
+                query()
+              }}", shown at the top
+            } @else {
+              No dealers match "{{ query() }}"
+            }
+          } @else if (region()) {
+            {{ hitCount() }} {{ regionName() }} {{ hitCount() === 1 ? 'dealer' : 'dealers' }} shown
+            at the top
+          }
+        </p>
+      </div>
+
+      <div class="grid-box" #gridBox tabindex="0" role="region" aria-label="Dealer list">
+        <table class="dealers">
+          <thead>
+            <tr>
+              <th scope="col">Province / country</th>
+              <th scope="col">Company</th>
+              <th scope="col">Tel</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of rows(); track item.row.key) {
+              <tr [class.hit]="item.hit">
+                <td class="dealers__region">{{ item.row.region }}</td>
+                <th scope="row" class="dealers__name">{{ item.row.name }}</th>
+                <td class="dealers__tel">
+                  <a [href]="'tel:' + item.row.tel">{{ item.row.phone }}</a>
+                </td>
+                <td class="dealers__address">{{ item.row.address }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

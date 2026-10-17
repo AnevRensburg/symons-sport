@@ -23,9 +23,7 @@ await rm(path.join(dist, '404'), { recursive: true });
 const redirects = {
   'about.html': '/about/',
   'products.html': '/products/',
-  // The dealer list was taken down (client request, July 2026): old links go to Contact.
-  'dealers.html': '/contact/',
-  'dealers/index.html': '/contact/',
+  'dealers.html': '/dealers/',
   'elmer.html': '/elmer/',
   'contact.html': '/contact/',
 };

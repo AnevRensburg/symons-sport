@@ -26,7 +26,7 @@ import { Picture } from '../../shared/picture/picture';
         <p class="hero__cta"><a routerLink="/contact">Contact us</a> to become a dealer.</p>
         <div class="hero__actions">
           <a class="button" routerLink="/products">View products</a>
-          <a class="button button--ghost" routerLink="/about">About us</a>
+          <a class="button button--ghost" routerLink="/dealers">Find a dealer</a>
         </div>
       </div>
     </section>

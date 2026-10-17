@@ -69,11 +69,16 @@ Tick items off (`- [x]`) when they are done, don't delete them.
   (`/about/`). The address bar shows `/about` once Angular has loaded.
 - Old URLs (`about.html`, `products.html`, …) redirect to the new routes via pages written by
   `scripts/postbuild.mjs`.
-- **Dealer list removed** (client email of 2026-07-22, done 2026-10-17). The Dealers page, its nav
-  link and the "Find a dealer" buttons are gone; `/dealers/` and `dealers.html` redirect to Contact.
-  The last version (144 dealers, region menu + search grid) is in git commit `a23bd7f`
-  (`src/app/pages/dealers/`, `src/app/data/dealers.ts`) if it is ever needed again. AG Grid had
-  been rejected for it because grouping needs a paid Enterprise licence.
+- **Dealers page:** briefly removed on 2026-10-17 after reading the client's email line "Dealer
+  lys: Haal af asb." as "take the list down". The user clarified it meant removing specific dealers,
+  so the page is back with 39 dealers removed (144 → 105). AG Grid was rejected for this page
+  because grouping by province needs a paid Enterprise licence.
+- Dealer search and the region menu move matching dealers to the top (highlighted) and keep the
+  rest below; using one clears the other. On desktop the list scrolls inside a fixed-height box.
+- The Zimbabwe dealer number is malformed on the old site (`+02 63 7722 68971`). Its `tel:` link
+  uses +263772268971; the displayed number is unchanged.
+- The dealer grid keeps one column-header row (Province / country, Company, Tel, Address) for
+  accessibility; only the per-province section headings were removed.
 - The footer copyright year is set at build time, so rebuild once a year (or on any change).
 - Products search hides products that don't match; the brand menu clears the search and jumps to
   the brand.
@@ -110,4 +115,6 @@ From the client's email "Website" (2026-07-22), done 2026-10-17:
       Hour Meters (text under the photo removed).
 - [x] Contact address: Unit 3, 30 Bella Rosa St, Bellville.
 - [x] Logo changed to "Symons Sport Int." (without the s).
-- [x] Dealer list taken down.
+- [x] Dealer list: remove the dealers the user listed on 2026-10-17 (39 removed, 105 left). Typos
+      in the list were matched to: Fast Powersports cc, RCR Motorcycles, Probike and Car Service,
+      Marula Dirt Bikes. Rocket Racing PMB, Vans Big Boy Scooters and Probike Welkom were kept.

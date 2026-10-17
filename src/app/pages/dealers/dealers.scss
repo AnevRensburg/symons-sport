@@ -1,0 +1,108 @@
+.intro {
+  color: var(--color-muted);
+}
+
+@media (min-width: 64em) {
+  .toolbar-menu {
+    display: none;
+  }
+
+  /* Desktop: the dealer list scrolls inside a fixed-height box, like a data grid. */
+  .grid-box {
+    max-block-size: calc(100dvh - var(--header-height) - 9rem);
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .dealers thead th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+  }
+}
+
+.grid-box {
+  margin-block-start: var(--space-3);
+  scroll-margin-block-start: calc(var(--header-height) + 8rem);
+}
+
+.dealers {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  th,
+  td {
+    padding: 0.4rem 0.75rem;
+    text-align: start;
+    vertical-align: top;
+  }
+
+  thead th {
+    border-block-end: 2px solid var(--color-text);
+    background: var(--color-bg);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  tbody tr {
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--color-surface);
+  }
+
+  tbody tr.hit {
+    background: #fff0f0;
+    box-shadow: inset 3px 0 0 var(--color-accent);
+  }
+}
+
+.dealers__region {
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.dealers__name {
+  font-weight: 600;
+}
+
+.dealers__tel a {
+  white-space: nowrap;
+}
+
+/* Small screens: each row stacks into a compact block. */
+@media (max-width: 47.99em) {
+  .dealers thead {
+    position: absolute;
+    clip-path: inset(50%);
+  }
+
+  .dealers tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: var(--space-3);
+    padding: var(--space-2) var(--space-1);
+  }
+
+  .dealers th,
+  .dealers td {
+    padding: 0;
+  }
+
+  .dealers__region {
+    grid-column: 1 / -1;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .dealers__address {
+    grid-column: 1 / -1;
+    color: var(--color-muted);
+  }
+}

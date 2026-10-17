@@ -8,8 +8,8 @@ Every route is **prerendered to static HTML** at build time. There is no backend
 hosted on GitHub Pages.
 
 This is the company's live business website, not a portfolio project. It shows static information
-only (products, contact details), so it makes no API or network calls. Interactive parts
-(the mobile menu, product search, the tribute dialog and the video player) run in the
+only (products, dealers, contact details), so it makes no API or network calls. Interactive parts
+(the mobile menu, product and dealer search, the tribute dialog and the video player) run in the
 browser.
 
 Open to-dos, decisions and manual launch steps are tracked in [CLAUDE.md](CLAUDE.md).
@@ -47,10 +47,10 @@ The build output is `dist/symons-sport-angular/browser/`. `postbuild.mjs` then:
 ```
 src/app/
   core/      header (accessible mobile menu), footer, SeoService, business details (site.ts)
-  pages/     home, about, products, elmer, contact, not-found (each lazy-loaded)
+  pages/     home, about, products, dealers, elmer, contact, not-found (each lazy-loaded)
   shared/    picture (AVIF/WebP + NgOptimizedImage), product card, brand carousel,
              tribute dialog (native <dialog>), icon (inline SVG)
-  data/      products.ts, tributes.ts, brands.ts, image-manifest.ts (generated)
+  data/      products.ts, dealers.ts, tributes.ts, brands.ts, image-manifest.ts (generated)
 public/      static files copied as-is: images/, fonts/, docs/, CNAME, robots.txt, sitemap.xml
 scripts/     optimize-images.mjs, postbuild.mjs
 ```
@@ -59,6 +59,8 @@ scripts/     optimize-images.mjs, postbuild.mjs
 
 - **Products:** `src/app/data/products.ts`. To add an image, put the original in `image-sources/`,
   add it to the list in `scripts/optimize-images.mjs` as `new/<file>` and run `npm run images`.
+- **Dealers:** `src/app/data/dealers.ts`. The `tel` field is the number in international format for
+  `tel:` links.
 - **Contact details** (also used in the footer and JSON-LD): `src/app/core/site.ts`.
 - **Page titles and descriptions:** the `seo` data on each route in `src/app/app.routes.ts`. If you
   add a page, add it to `public/sitemap.xml` too.
