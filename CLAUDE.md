@@ -45,7 +45,7 @@ Tick items off (`- [x]`) when they are done, don't delete them.
 
 - [ ] **Dealers API hosting** (added 2026-10-19): Render Starter ($7 ≈ R125/month, always on) or
       the free plan (sleeps after 15 min: visitors briefly see the built-in list, first admin login
-      takes about a minute). `render.yaml` uses Starter. Decide who pays (pass on to the client?).
+      takes about a minute). `render.yaml` uses Free for now (2026-10-19, Ané's choice); switch to Starter once the client agrees to pay. Decide who pays (pass on to the client?).
 - [ ] **API address:** the site calls `https://api.symons-sport.co.za` (needs a CNAME at the
       registrar to Render). Otherwise put the `onrender.com` URL in `src/app/core/api.ts`.
 - [ ] **Google Analytics:** create the GA4 property, put the `G-` ID in `site.ts` and the service

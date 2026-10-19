@@ -5,7 +5,7 @@ services:
     name: symons-sport-api
     runtime: node
     region: frankfurt
-    plan: starter # $7/month, always on. "free" works too but sleeps after 15 minutes idle (see api/README.md)
+    plan: free # sleeps after 15 min idle; switch to "starter" ($7/month, always on) in Render when the client pays
     rootDir: api
     buildCommand: npm ci --omit=dev
     startCommand: node src/server.ts
