@@ -43,11 +43,13 @@ Tick items off (`- [x]`) when they are done, don't delete them.
 
 ### Decisions for the user
 
-- [ ] **Dealers API hosting** (added 2026-10-19): Render Starter ($7 ≈ R125/month, always on) or
+- [x] **Dealers API hosting** (added 2026-10-19): Render Starter ($7 ≈ R125/month, always on) or
       the free plan (sleeps after 15 min: visitors briefly see the built-in list, first admin login
       takes about a minute). `render.yaml` uses Free for now (2026-10-19, Ané's choice); switch to Starter once the client agrees to pay. Decide who pays (pass on to the client?).
-- [ ] **API address:** the site calls `https://api.symons-sport.co.za` (needs a CNAME at the
-      registrar to Render). Otherwise put the `onrender.com` URL in `src/app/core/api.ts`.
+- [x] **API address:** live 2026-10-19. Atlas M0 (Frankfurt, database `symons`, seeded with 106
+      dealers) + Render free plan (`symons-sport-api`, Blueprint `symons-sport`) at
+      `https://api.symons-sport.co.za`. DNS is at **GoDaddy** (domaincontrol.com), not Hostinger:
+      CNAME `api` → `symons-sport-api.onrender.com`. Admin logins created by Ané (owner + support).
 - [ ] **Google Analytics:** create the GA4 property, put the `G-` ID in `site.ts` and the service
       account in Render (`api/README.md`). Until then the analytics tab shows labelled sample data.
 - [x] **Built-in dealer list drifts:** `src/app/data/dealers.ts` is only the prerendered first
