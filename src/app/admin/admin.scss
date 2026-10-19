@@ -1,0 +1,430 @@
+/* Admin page only (not encapsulated: shared by the admin tabs). Everything is scoped under .admin. */
+.admin {
+  --ink: var(--color-text);
+  --muted: var(--color-muted);
+  --line: var(--color-border);
+  --accent: var(--color-accent-text);
+
+  display: flow-root;
+  min-block-size: 100dvh;
+  background: var(--color-surface);
+  font-size: 0.9375rem;
+
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    margin: 0 0 var(--space-3);
+    font-size: 1.1rem;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .card {
+    background: var(--color-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+  }
+
+  .card--flush {
+    padding: 0;
+  }
+
+  .card__head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 2.5rem;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.92);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: progress;
+    }
+  }
+
+  .btn--ghost {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+
+  .btn--danger {
+    background: #b00020;
+    border-color: #b00020;
+  }
+
+  .link {
+    padding: 0.25rem 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .link.danger {
+    color: #b00020;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.3rem;
+
+    > span {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    input,
+    select {
+      inline-size: 100%;
+      min-block-size: 2.5rem;
+      padding: 0.45rem 0.65rem;
+      border: 1px solid #c4c4c4;
+      border-radius: var(--radius);
+      background: var(--color-bg);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    small {
+      font-size: 0.8rem;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .error {
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    background: #fdecee;
+    color: #8a0016;
+  }
+
+  .notice {
+    margin-block: 0 var(--space-3);
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    background: #eaf6ec;
+    color: #1d5b2a;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}
+
+.admin-center {
+  margin: 0 auto;
+  padding-block-start: 12vh;
+}
+
+.auth-card.card {
+  display: grid;
+  gap: var(--space-3);
+  inline-size: min(26rem, calc(100% - 2rem));
+  margin-block-start: 12vh;
+  padding: var(--space-5) var(--space-4);
+
+  img {
+    block-size: auto;
+  }
+}
+
+.admin-bar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 5;
+  background: var(--color-bg);
+  border-block-end: 1px solid var(--line);
+}
+
+.admin-bar__inner,
+.admin-main {
+  inline-size: min(var(--content-max), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.admin-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding-block: var(--space-2);
+}
+
+.admin-bar__logo img {
+  display: block;
+  block-size: auto;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: var(--space-1);
+
+  button {
+    padding: 0.55rem 0.9rem;
+    border: 0;
+    border-radius: var(--radius);
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.on {
+      background: var(--color-surface);
+      color: var(--accent);
+    }
+  }
+}
+
+.admin-bar__user {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-inline-start: auto;
+  font-size: 0.875rem;
+}
+
+.admin-main {
+  display: block;
+  padding-block: var(--space-4) var(--space-6);
+
+  &.notice {
+    margin-block: var(--space-3) 0;
+  }
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+
+  p {
+    margin: 0.3rem 0 0;
+  }
+}
+
+.dealer-form {
+  margin-block-end: var(--space-4);
+  scroll-margin-block-start: 6rem;
+
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    align-items: start;
+    gap: var(--space-3);
+    margin-block-end: var(--space-3);
+  }
+
+  .field--wide {
+    grid-column: 1 / -1;
+  }
+
+  .error {
+    margin-block-end: var(--space-3);
+  }
+}
+
+.admin .toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-block-end: var(--space-3);
+
+  .field {
+    flex: 1 1 16rem;
+    max-inline-size: 24rem;
+  }
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.admin .table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  th,
+  td {
+    padding: 0.55rem 0.75rem;
+    border-block-end: 1px solid var(--line);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  thead th {
+    background: var(--color-surface);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+  }
+
+  tbody tr:hover {
+    background: #fafafa;
+  }
+
+  tr.just-saved {
+    background: #fff4f4;
+  }
+
+  .row-actions {
+    display: flex;
+    gap: var(--space-3);
+    white-space: nowrap;
+  }
+}
+
+.admin dialog.confirm {
+  inline-size: min(28rem, calc(100% - 2rem));
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.25);
+
+  &::backdrop {
+    background: rgb(0 0 0 / 0.4);
+  }
+
+  p {
+    margin-block: 0 var(--space-4);
+  }
+}
+
+/* Website analytics */
+.admin {
+  .tabs {
+    display: flex;
+    gap: var(--space-1);
+    padding: 0.2rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+
+    button {
+      padding: 0.4rem 0.75rem;
+      border: 0;
+      border-radius: calc(var(--radius) - 2px);
+      background: none;
+      font: inherit;
+      cursor: pointer;
+
+      &.on {
+        background: var(--ink);
+        color: #fff;
+      }
+    }
+  }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--space-3);
+    margin-block-end: var(--space-3);
+  }
+
+  .kpi {
+    display: grid;
+    gap: 0.2rem;
+
+    span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    strong {
+      font-size: 1.6rem;
+    }
+  }
+
+  .legend i {
+    display: inline-block;
+    inline-size: 1rem;
+    block-size: 0;
+    margin-inline: 0.3rem 0.1rem;
+    border-block-start: 2.5px solid var(--accent);
+    vertical-align: middle;
+
+    &.dash {
+      border-block-start: 2px dashed var(--ink);
+      opacity: 0.4;
+    }
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-3);
+    margin-block-start: var(--space-3);
+  }
+}
+
+/* Phones: each dealer becomes a small card with its buttons on the right. */
+@media (max-width: 47.99em) {
+  .admin .table {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      padding-block: 0.5rem;
+      border-block-end: 1px solid var(--line);
+    }
+
+    td {
+      grid-column: 1;
+      padding-block: 0.1rem;
+      border: 0;
+    }
+
+    .row-actions {
+      grid-column: 2;
+      grid-row: 1 / span 4;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+}

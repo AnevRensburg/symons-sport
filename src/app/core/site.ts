@@ -4,6 +4,8 @@ export const SITE = {
   url: 'https://www.symons-sport.co.za',
   ogImage: '/images/og-image.jpg',
   email: 'symons.sport@gmail.com',
+  /** Google Analytics 4 measurement ID (G-XXXXXXXXXX). Empty = no tracking. */
+  gaMeasurementId: '',
   founded: '2003',
   phones: [
     { label: 'Office', display: '021 975 9629', tel: '+27219759629' },

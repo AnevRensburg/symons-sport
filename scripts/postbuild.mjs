@@ -5,7 +5,8 @@
  *  - redirect pages for the old site's URLs (about.html, products.html, ...)
  *  - hero preload: point it at the AVIF files the <picture> actually uses, with type="image/avif"
  *    so browsers without AVIF support skip it and use the WebP <img> instead
- *  - removes index.csr.html (every route is prerendered)
+ *  - admin/index.html from index.csr.html (the admin page is rendered in the browser only), with
+ *    noindex; index.csr.html itself is removed
  */
 import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -69,8 +70,19 @@ for (const file of htmlFiles) {
   if (next !== html) await writeFile(file, next);
 }
 
-// 4. Not needed: every route is prerendered
-await rm(path.join(dist, 'index.csr.html'), { force: true });
+// 4. The admin page is the only client-rendered route
+const shell = await readFile(path.join(dist, 'index.csr.html'), 'utf8');
+await mkdir(path.join(dist, 'admin'), { recursive: true });
+await writeFile(
+  path.join(dist, 'admin/index.html'),
+  shell
+    .replace(
+      '<title>Symons Sport International</title>',
+      '<title>Admin | Symons Sport International</title>',
+    )
+    .replace('</head>', '<meta name="robots" content="noindex, nofollow"></head>'),
+);
+await rm(path.join(dist, 'index.csr.html'));
 
 console.log(
   `postbuild: 404.html, ${Object.keys(redirects).length} legacy redirects, ${rewritten} AVIF preload(s)`,

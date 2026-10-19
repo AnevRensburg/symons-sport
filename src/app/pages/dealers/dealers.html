@@ -1,14 +1,14 @@
 <div class="page container">
   <h1>Our Dealers</h1>
   <p class="intro prose">
-    Our products are available from {{ total }} reputable dealerships throughout South Africa,
+    Our products are available from {{ total() }} reputable dealerships throughout South Africa,
     Namibia, Mauritius and Zimbabwe. Want to stock our brands?
     <a routerLink="/contact">Contact us</a> to become a dealer.
   </p>
 
   <ng-template #regionMenu>
     <ul class="side-menu" role="list">
-      @for (r of regions; track r.id) {
+      @for (r of regions(); track r.id) {
         <li>
           <button
             type="button"

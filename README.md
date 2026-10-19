@@ -9,8 +9,10 @@ Africa, the company's contact details, and a tribute page for co-founder Elmer S
 
 - Built with **Angular 22**: standalone components, signals, zoneless change detection, strict
   TypeScript and SCSS. No UI libraries (no Bootstrap, jQuery or icon fonts).
-- Every page is **prerendered to static HTML** at build time, so the site needs no server or
-  backend and makes no API calls. Only the interactive parts run in the browser: the mobile menu,
+- Every page is **prerendered to static HTML** at build time. The only backend is the small
+  dealers API in [`api/`](api/README.md) (Express + MongoDB on Render): the dealers page loads the
+  live list from it, and the owner edits dealers and sees Google Analytics on the hidden `/admin`
+  page. Only the interactive parts run in the browser: the mobile menu,
   product and dealer search, the tribute message dialog and the click-to-load YouTube video.
 - Hosted on **GitHub Pages** at www.symons-sport.co.za, deployed automatically by GitHub Actions on
   every push to `main`.

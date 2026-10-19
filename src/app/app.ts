@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
 import { Footer } from './core/footer/footer';
 import { Header } from './core/header/header';
 import { SeoService } from './core/seo.service';
@@ -10,16 +11,20 @@ import { BrandCarousel } from './shared/brand-carousel/brand-carousel';
   imports: [RouterOutlet, Header, Footer, BrandCarousel],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <app-header />
-    <main id="main" tabindex="-1">
+    @if (isAdmin()) {
       <router-outlet />
-    </main>
-    @defer (on viewport; hydrate never) {
-      <app-brand-carousel />
-    } @placeholder {
-      <div class="carousel-placeholder"></div>
+    } @else {
+      <app-header />
+      <main id="main" tabindex="-1">
+        <router-outlet />
+      </main>
+      @defer (on viewport; hydrate never) {
+        <app-brand-carousel />
+      } @placeholder {
+        <div class="carousel-placeholder"></div>
+      }
+      <app-footer />
     }
-    <app-footer />
   `,
   styles: `
     :host {
@@ -37,7 +42,15 @@ import { BrandCarousel } from './shared/brand-carousel/brand-carousel';
   `,
 })
 export class App {
+  /** The admin page has its own layout, without the website's header, carousel and footer. */
+  protected readonly isAdmin = signal(
+    typeof location !== 'undefined' && /^\/admin(\/|$)/.test(location.pathname),
+  );
+
   constructor() {
     inject(SeoService).init();
+    inject(Router)
+      .events.pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e) => this.isAdmin.set(/^\/admin(\/|\?|#|$)/.test(e.urlAfterRedirects)));
   }
 }

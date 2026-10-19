@@ -1,0 +1,31 @@
+# Render Blueprint for the dealers API (api/). The website itself stays on GitHub Pages.
+# Secrets marked sync:false are entered in the Render dashboard.
+services:
+  - type: web
+    name: symons-sport-api
+    runtime: node
+    region: frankfurt
+    plan: starter # $7/month, always on. "free" works too but sleeps after 15 minutes idle (see api/README.md)
+    rootDir: api
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.ts
+    healthCheckPath: /api/health
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - api/**
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URL # Atlas connection string, database "symons"
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://www.symons-sport.co.za,https://symons-sport.co.za
+      - key: GA4_PROPERTY_ID # numbers only; empty = sample data on the analytics tab
+        sync: false
+      - key: GA4_CREDENTIALS_JSON # the service account's JSON key, pasted as one value
+        sync: false

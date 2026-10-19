@@ -3,7 +3,10 @@
 Business website for Symons Sport International (motorcycle parts importer/distributor, Bellville,
 Cape Town). Angular 22, standalone components, signals, zoneless, strict TS, SCSS. Every route is
 prerendered to static HTML (`outputMode: "static"`) and hosted on GitHub Pages at
-www.symons-sport.co.za. No backend and no API calls, ever. Content changes are cosmetic or data-only.
+www.symons-sport.co.za. Since 2026-10-19 the dealer list also lives in MongoDB behind a small API
+(`api/`, hosted on Render, see `api/README.md`): the dealers page swaps in the live list in the
+browser, and the owner edits dealers on the hidden `/admin` page (client-rendered, noindex, not
+linked or in the sitemap), which also has a Google Analytics tab. Everything else stays static.
 
 The old static site lives in `../symons-sport` (a local checkout). Never modify that folder. The
 GitHub repo `AnevRensburg/symons-sport` now holds this Angular site on `main`; the old site's
@@ -39,6 +42,16 @@ trade-off, a skipped item, a content question, a manual step), add it to this li
 Tick items off (`- [x]`) when they are done, don't delete them.
 
 ### Decisions for the user
+
+- [ ] **Dealers API hosting** (added 2026-10-19): Render Starter ($7 ≈ R125/month, always on) or
+      the free plan (sleeps after 15 min: visitors briefly see the built-in list, first admin login
+      takes about a minute). `render.yaml` uses Starter. Decide who pays (pass on to the client?).
+- [ ] **API address:** the site calls `https://api.symons-sport.co.za` (needs a CNAME at the
+      registrar to Render). Otherwise put the `onrender.com` URL in `src/app/core/api.ts`.
+- [ ] **Google Analytics:** create the GA4 property, put the `G-` ID in `site.ts` and the service
+      account in Render (`api/README.md`). Until then the analytics tab shows labelled sample data.
+- [ ] **Built-in dealer list drifts:** `src/app/data/dealers.ts` is only the prerendered first
+      view and fallback. After many admin edits, refresh it from the live API before a deploy.
 
 - [ ] The business moved from Unit 4 Durbanville Park, 5 Lilie Street, Durbanville to
       Unit 3, 30 Bella Rosa St, Bellville, 7550 (updated on the site 2026-10-17). The office number

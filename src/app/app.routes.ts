@@ -77,6 +77,18 @@ export const routes: Routes = [
       jsonLd: LOCAL_BUSINESS_JSON_LD,
     }),
   },
+  // The owner's admin page: not linked anywhere, not in the sitemap, not indexed. Rendered in the
+  // browser only (app.routes.server.ts); scripts/postbuild.mjs writes its admin/index.html.
+  {
+    path: 'admin',
+    loadComponent: () => import('./admin/admin').then((m) => m.Admin),
+    data: seo({
+      title: 'Admin | Symons Sport International',
+      description: 'Admin login.',
+      path: '/admin/',
+      noindex: true,
+    }),
+  },
   // Prerendered and copied to 404.html for GitHub Pages by scripts/postbuild.mjs.
   {
     path: '404',

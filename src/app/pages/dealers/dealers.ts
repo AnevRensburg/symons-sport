@@ -3,12 +3,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  afterNextRender,
   computed,
   signal,
   viewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DEALER_COUNT, DEALER_REGIONS, Dealer } from '../../data/dealers';
+import { apiUrl } from '../../core/api';
+import { DEALER_REGIONS, Dealer, DealerRegion } from '../../data/dealers';
 
 interface DealerRow extends Dealer {
   readonly key: string;
@@ -18,16 +20,17 @@ interface DealerRow extends Dealer {
   readonly haystack: string;
 }
 
-/** Every dealer in one list, in region order (the order of DEALER_REGIONS) then data order. */
-const ROWS: readonly DealerRow[] = DEALER_REGIONS.flatMap((region) =>
-  region.dealers.map((d) => ({
-    ...d,
-    key: `${region.id}/${d.name}`,
-    regionId: region.id,
-    region: region.name,
-    haystack: `${region.name} ${d.name} ${d.address ?? ''} ${d.phone}`.toLowerCase(),
-  })),
-);
+/** Every dealer in one list, in region order then data order. */
+const toRows = (regions: readonly DealerRegion[]): DealerRow[] =>
+  regions.flatMap((region) =>
+    region.dealers.map((d, i) => ({
+      ...d,
+      key: `${region.id}/${d.name}/${i}`,
+      regionId: region.id,
+      region: region.name,
+      haystack: `${region.name} ${d.name} ${d.address ?? ''} ${d.phone}`.toLowerCase(),
+    })),
+  );
 
 @Component({
   selector: 'app-dealers',
@@ -37,12 +40,32 @@ const ROWS: readonly DealerRow[] = DEALER_REGIONS.flatMap((region) =>
   styleUrl: './dealers.scss',
 })
 export class Dealers {
-  protected readonly regions = DEALER_REGIONS;
-  protected readonly total = DEALER_COUNT;
+  /**
+   * The prerendered page shows the list from data/dealers.ts (for search engines, and while the
+   * API wakes up); in the browser it is replaced by the live list the owner edits on /admin.
+   */
+  protected readonly regions = signal<readonly DealerRegion[]>(DEALER_REGIONS);
+  private readonly allRows = computed(() => toRows(this.regions()));
+  protected readonly total = computed(() => this.allRows().length);
   protected readonly query = signal('');
   protected readonly region = signal<string | null>(null);
 
   private readonly gridBox = viewChild.required<ElementRef<HTMLElement>>('gridBox');
+
+  constructor() {
+    afterNextRender(() => void this.loadLive());
+  }
+
+  private async loadLive(): Promise<void> {
+    try {
+      const res = await fetch(`${apiUrl()}/api/dealers`);
+      if (!res.ok) return;
+      const live = (await res.json()) as DealerRegion[];
+      if (Array.isArray(live) && live.length) this.regions.set(live);
+    } catch {
+      // API unreachable: keep showing the built-in list.
+    }
+  }
 
   /** Does a row match the active search or region? (Only one of them is active at a time.) */
   private readonly matcher = computed<((row: DealerRow) => boolean) | null>(() => {
@@ -56,9 +79,10 @@ export class Dealers {
   /** Matching rows move to the top (keeping their order); everything else follows. */
   protected readonly rows = computed(() => {
     const match = this.matcher();
-    if (!match) return ROWS.map((row) => ({ row, hit: false }));
-    const hits = ROWS.filter(match);
-    const rest = ROWS.filter((row) => !match(row));
+    const rows = this.allRows();
+    if (!match) return rows.map((row) => ({ row, hit: false }));
+    const hits = rows.filter(match);
+    const rest = rows.filter((row) => !match(row));
     return [
       ...hits.map((row) => ({ row, hit: true })),
       ...rest.map((row) => ({ row, hit: false })),
@@ -68,7 +92,7 @@ export class Dealers {
   protected readonly hitCount = computed(() => this.rows().filter((r) => r.hit).length);
 
   protected readonly regionName = computed(
-    () => this.regions.find((r) => r.id === this.region())?.name ?? '',
+    () => this.regions().find((r) => r.id === this.region())?.name ?? '',
   );
 
   protected onSearch(event: Event): void {
