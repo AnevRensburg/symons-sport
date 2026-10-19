@@ -78,27 +78,17 @@ Tick items off (`- [x]`) when they are done, don't delete them.
 
 ### Dealer questions
 
-Open questions about the dealer list (`src/app/data/dealers.ts`), to go through with the client.
-Each was checked online on 2026-10-17.
+Open questions about the dealer list, checked online on 2026-10-17. The owner answered them all on
+2026-10-19; the changes were made in the live database (and synced to `src/app/data/dealers.ts`).
 
-- [ ] **AOV Tech** (Hillcrest, KZN; was TR-Tec Adventure): renamed at the user's request, but no
-      trace of "AOV Tech" was found online. Confirm the name with the dealer or the client.
-- [ ] **NL Racing** (Nelspruit; was No Limits Racing): renamed at the user's request. Online the shop
-      appears as "NL Auto & Bike" at 34 Christie Crescent, Vintonia, Mbombela, but the site still
-      lists Shop 34 Sonpark Industrial, Nelspruit 1200. Confirm the exact name and address.
-- [ ] **RAD Paarl** (was KTM Paarl; rename confirmed online): a 2026 news item says it moved to
-      2 New Eskdale Str, Paarl South, but the site still shows Zandwyk Business Park, R101 Old Paarl
-      Road, Paarl, 7646. Confirm the current address.
-- [ ] **The Roost** (Boksburg): set to "Atlas Rd, Boksburg 1459" as given. Their own website lists
-      Unit 12 Atlas Lifestyle Centre, Cnr North Rand & Atlas Rd, Bardene, Boksburg 1459. Use the
-      full address?
-- [ ] **UB Leisure** (Pretoria, new dealer): most listings give 34 Banghoek Crescent, The Willows,
-      Pretoria, but the Suzuki and Kawasaki dealer lists place it at N4 Gateway. Confirm.
-- [ ] **Locomoto** (now Hermanus, Western Cape): shown as just "Hermanus" as given. Their website
-      lists 8 Romany Street, Sandbaai, Hermanus 7200, and it appears to be mainly an online parts
-      shop. Use the full address?
-- [ ] **Similar names kept** when removing 39 dealers: Rocket Racing PMB, Vans Motorcycles (was Vans
-      Big Boy Scooters) and Probike Welkom. Confirm they should stay.
+- [x] **AOV Tech** renamed **ADV Tech** (Hillcrest, KZN).
+- [x] **NL Racing** renamed **NL Auto & Bike**, address 34 Christie Crescent, Vintonia, Mbombela.
+- [x] **RAD Paarl** moved to 2 New Eskdale Street, Paarl South.
+- [x] **The Roost**: Unit 12 Atlas Lifestyle Centre, Atlas Rd, Bardene, Boksburg 1459 (the owner
+      gave it without "Cnr North Rand"; Boksburg 1459 kept from the old address).
+- [x] **UB Leisure**: N4 Gateway, Pretoria (the owner gave no street number).
+- [x] **Locomoto**: 8 Romany Street, Sandbaai, Hermanus 7200.
+- [x] **Rocket Racing PMB, Vans Motorcycles, Probike Welkom** stay.
 
 ### Things to know
 

@@ -228,7 +228,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         name: 'The Roost',
         phone: '011 362 2255',
         tel: '+27113622255',
-        address: 'Atlas Rd, Boksburg 1459',
+        address: 'Unit 12 Atlas Lifestyle Centre, Atlas Rd, Bardene, Boksburg 1459',
       },
       {
         name: 'True Wheels',
@@ -240,7 +240,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         name: 'UB Leisure',
         phone: '012 331 1224',
         tel: '+27123311224',
-        address: '34 Banghoek Crescent, Pretoria',
+        address: 'N4 Gateway, Pretoria',
       },
       {
         name: 'VLA Racing Vic Legacy',
@@ -267,16 +267,16 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         address: '158 Greyling Str. PMB 3201',
       },
       {
+        name: 'ADV Tech',
+        phone: '076 819 7736',
+        tel: '+27768197736',
+        address: 'Unit 29 Fischer,Blessing Ninela Road, Hillcrest, 3610',
+      },
+      {
         name: 'Alfie Cox Racing',
         phone: '031 007 0410',
         tel: '+27310070410',
         address: '#15, D246, Cato Ridge, 3680',
-      },
-      {
-        name: 'AOV Tech',
-        phone: '076 819 7736',
-        tel: '+27768197736',
-        address: 'Unit 29 Fischer,Blessing Ninela Road, Hillcrest, 3610',
       },
       {
         name: 'Ekerold Yamaha',
@@ -467,7 +467,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         name: 'Locomoto',
         phone: '083 327 2499',
         tel: '+27833272499',
-        address: 'Hermanus',
+        address: '8 Romany Street, Sandbaai, Hermanus 7200',
       },
       {
         name: 'Muddy Offroads',
@@ -485,7 +485,7 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         name: 'RAD Paarl',
         phone: '021 879 4630',
         tel: '+27218794630',
-        address: 'Zandwyk Business Park, R101 Old Paarl Road, Paarl, 7646',
+        address: '2 New Eskdale Street, Paarl South',
       },
       {
         name: 'Swartland Yamaha',
@@ -620,10 +620,10 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
     name: 'Mpumalanga',
     dealers: [
       {
-        name: 'NL Racing',
+        name: 'NL Auto & Bike',
         phone: '076 365 6625',
         tel: '+27763656625',
-        address: 'Shop 34 Sonpark Industrial, Nelspruit 1200',
+        address: '34 Christie Crescent, Vintonia, Mbombela',
       },
       {
         name: 'Pitlane Motorcycle Accessories',
