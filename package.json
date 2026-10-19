@@ -11,7 +11,8 @@
     "lint": "ng lint",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\" \"scripts/**/*.mjs\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss}\" \"scripts/**/*.mjs\"",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "sync-dealers": "node scripts/sync-dealers.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

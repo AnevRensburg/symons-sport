@@ -50,8 +50,10 @@ Tick items off (`- [x]`) when they are done, don't delete them.
       registrar to Render). Otherwise put the `onrender.com` URL in `src/app/core/api.ts`.
 - [ ] **Google Analytics:** create the GA4 property, put the `G-` ID in `site.ts` and the service
       account in Render (`api/README.md`). Until then the analytics tab shows labelled sample data.
-- [ ] **Built-in dealer list drifts:** `src/app/data/dealers.ts` is only the prerendered first
-      view and fallback. After many admin edits, refresh it from the live API before a deploy.
+- [x] **Built-in dealer list drifts:** `src/app/data/dealers.ts` is only the prerendered first
+      view and fallback. Since 2026-10-19 `.github/workflows/sync-dealers.yml` refreshes it from
+      the live API on the 1st of each month (`npm run sync-dealers` by hand) and redeploys if it
+      changed. It needs the API live at `api.symons-sport.co.za` (else set `DEALERS_API_URL`).
 
 - [ ] The business moved from Unit 4 Durbanville Park, 5 Lilie Street, Durbanville to
       Unit 3, 30 Bella Rosa St, Bellville, 7550 (updated on the site 2026-10-17). The office number

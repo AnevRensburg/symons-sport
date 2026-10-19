@@ -1,0 +1,36 @@
+# Once a month: copies the live dealer list (edited by the owner on /admin) into
+# src/app/data/dealers.ts, the built-in list the dealers page is prerendered with and falls back to.
+# Commits and redeploys the site only when something changed. Also runs from the Actions tab.
+name: Sync built-in dealer list
+
+on:
+  schedule:
+    - cron: '0 4 1 * *' # 1st of every month, 06:00 South African time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - id: sync
+        run: echo "result=$(node scripts/sync-dealers.mjs | tail -1)" >> "$GITHUB_OUTPUT"
+      - if: startsWith(steps.sync.outputs.result, 'changed')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Sync built-in dealer list from the live API (${{ steps.sync.outputs.result }})"
+          git push
+          # Pushes made with this token don't start other workflows, so start the deploy here.
+          gh workflow run deploy.yml --ref main

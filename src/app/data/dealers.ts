@@ -109,16 +109,16 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         address: 'Unit 30, N12 Industrial Park, 27 Dr.Vosloo Road, Bartlett, Boksburg 1459',
       },
       {
-        name: 'EnduroShop SA',
-        phone: '011 918 4911',
-        tel: '+27119184911',
-        address: 'Unit 12, N12 Industrial Park, 188 Dr.Vosloo Drive, Bartlett, Boksburg, 1459',
-      },
-      {
         name: 'Enduro Tech',
         phone: '082 739 6196',
         tel: '+27827396196',
         address: '13 Kayak (Cnr Zeiss Rd), Laser Park, Honeydew, 2170',
+      },
+      {
+        name: 'EnduroShop SA',
+        phone: '011 918 4911',
+        tel: '+27119184911',
+        address: 'Unit 12, N12 Industrial Park, 188 Dr.Vosloo Drive, Bartlett, Boksburg, 1459',
       },
       {
         name: 'Fast KTM',
@@ -150,7 +150,12 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         tel: '+27829438977',
         address: '346 Calliandra Street, Montana, Montana mini units, Unit 2.4, Pretoria, 0182',
       },
-      { name: 'Joffter Off Road', phone: '084 564 2869', tel: '+27845642869', address: 'Randburg' },
+      {
+        name: 'Joffter Off Road',
+        phone: '084 564 2869',
+        tel: '+27845642869',
+        address: 'Randburg',
+      },
       {
         name: 'KTM Centurion',
         phone: '012 643 1110',
@@ -357,7 +362,11 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         tel: '+27615859056',
         address: '6 Osdam Park, 14 Columbus Crescent, Rivergate Parklands, Cape Town 7441',
       },
-      { name: 'Anodized Racing', phone: '082 897 5690', tel: '+27828975690' },
+      {
+        name: 'Anodized Racing',
+        phone: '082 897 5690',
+        tel: '+27828975690',
+      },
       {
         name: 'Bike Torque',
         phone: '021 982 8917',
@@ -383,16 +392,16 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         address: '40 Stella Road, Montague Gardens',
       },
       {
-        name: 'Craigs Motorcycle Fitment Centre',
-        phone: '021 939 8916',
-        tel: '+27219398916',
-        address: '79 Voortrekker Road Parow',
-      },
-      {
         name: "Craig's Spares & Accessories",
         phone: '021 511 1916',
         tel: '+27215111916',
         address: '2 Koeberg Road, Maitland, 7405',
+      },
+      {
+        name: 'Craigs Motorcycle Fitment Centre',
+        phone: '021 939 8916',
+        tel: '+27219398916',
+        address: '79 Voortrekker Road Parow',
       },
       {
         name: 'DirtRider Motorcycles',
@@ -454,7 +463,12 @@ export const DEALER_REGIONS: readonly DealerRegion[] = [
         tel: '+27215117966',
         address: '44 Marine Drive, Cape Town',
       },
-      { name: 'Locomoto', phone: '083 327 2499', tel: '+27833272499', address: 'Hermanus' },
+      {
+        name: 'Locomoto',
+        phone: '083 327 2499',
+        tel: '+27833272499',
+        address: 'Hermanus',
+      },
       {
         name: 'Muddy Offroads',
         phone: '071 605 1606',
